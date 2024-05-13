@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Helvetica', 'Arial', sans-serif;
-  background-image: url(https://github.com/antleeon/antleeon.github.io/blob/main/media/background_2.jpg);
+  background-image: url(media/background_2.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -29,7 +29,7 @@ body {
 }
 
 .avatar-image {
-  src: url(https://github.com/antleeon/antleeon.github.io/blob/main/media/ava.png);
+  src: url(media/ava.png);
   object-fit: cover;
   height: 70%;
   border-radius: 50%;
