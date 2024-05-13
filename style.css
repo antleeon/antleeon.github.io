@@ -23,7 +23,6 @@ body {
 
 .header-title {
   font-size: 50px;
-  color: white;
   font-weight: 300;
   margin: auto;
 }
@@ -51,7 +50,8 @@ body {
 .footer {
   display: flex;
   background-color: rgba(40, 40, 40, 0.7);
-  height: 40vh;
+  height: 30vh;
+  margin-bottom: 0px;
 }
 
 .footer-author {
