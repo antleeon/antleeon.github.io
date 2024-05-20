@@ -50,7 +50,7 @@ body {
 }
 
 .footer {
-  display: block;
+  display: flex;
   background-color: rgba(40, 40, 40, 0.7);
   color: white;
   height: 30vh;
@@ -61,14 +61,14 @@ body {
   display: block;
   text-align: center;
   font-size: 24px;
-  margin: 30px 20px 30px 20px;
+  margin: 40px 25px 40px 25px;
 }
 
 .footer-line {
   display: block;
   text-align: left;
   font-size: 18px;
-  margin: 20px 15px 20px 15px;
+  margin: 20px 25px 20px 25px;
 }
 
 .footer-link {
