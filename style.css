@@ -24,8 +24,7 @@ body {
   text-align: left;
   font-size: 50px;
   font-weight: 300;
-  margin-top: auto;
-  margin-left: 20px;
+  margin: auto 20px;
 }
 
 .avatar-image {
