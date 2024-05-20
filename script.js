@@ -14,5 +14,6 @@ function PlusSlides(n) {
 }
 
 function CloseSlides() {
+  let modal = document.getElementById("slideshow_modal");
   modal.style.display = "none";
 }
