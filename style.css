@@ -55,18 +55,17 @@ body {
   color: white;
   height: 30vh;
   margin-bottom: 0px;
+  padding: 20px 20px 20px 20px;
 }
 
 .footer-author {
   text-align: center;
   font-size: 24px;
-  margin: 40px 25px 40px 25px;
 }
 
 .footer-line {
   text-align: left;
   font-size: 18px;
-  margin: 20px 25px 20px 25px;
 }
 
 .footer-link {
