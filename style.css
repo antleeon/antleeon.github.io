@@ -13,8 +13,6 @@ body {
 }
 
 .header {
-  height: 100vh;
-  display: flex;
   height: 20vh;
   background-color: white;
   color: black;
@@ -22,6 +20,7 @@ body {
 }
 
 .header-title {
+  text-align: left;
   font-size: 50px;
   font-weight: 300;
   margin-top: auto;
@@ -49,6 +48,7 @@ body {
 }
 
 .footer {
+  text-align: center;
   display: flex;
   background-color: rgba(40, 40, 40, 0.7);
   height: 30vh;
