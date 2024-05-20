@@ -201,16 +201,16 @@ body {
   cursor: pointer;
   position: fixed;
   z-index: 1;
-  bottom: 40px;
-  right: 40px;
+  bottom: 80px;
+  right: 80px;
   margin: auto auto auto auto;
   width: 10%;
-  max-width: 50px;
+  max-width: 150px;
   overflow: auto;
   border-radius: 50%;
 }
 
 .feedback-button:hover,
 .feedback-button:focus {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(40, 40, 40, 0.7);
 }
