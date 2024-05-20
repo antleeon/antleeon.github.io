@@ -89,6 +89,7 @@ body {
   width: 25%;
   max-width: 400px;
   border-radius: 20px;
+  margin: auto auto auto auto;
   cursor: pointer;
   transition: 0.5s;
 }
