@@ -61,14 +61,14 @@ body {
   display: block;
   text-align: center;
   font-size: 24px;
-  margin: 30px auto 30px auto;
+  margin: 30px 20px 30px 20px;
 }
 
 .footer-line {
   display: block;
   text-align: left;
   font-size: 18px;
-  margin: 20px auto 20px auto;
+  margin: 20px 15px 20px 15px;
 }
 
 .footer-link {
