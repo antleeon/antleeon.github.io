@@ -28,7 +28,7 @@ body {
 }
 
 .avatar-image {
-  src: url(media/ava.png);
+  src: url(https://github.com/antleeon/antleeon.github.io/blob/main/media/ava.png);
   object-fit: cover;
   height: 70%;
   border-radius: 50%;
