@@ -140,6 +140,32 @@ body {
   cursor: pointer;
 }
 
+.prev-button,
+.next-button {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0px 3px 3px 0px;
+}
+
+.prev-button {
+  left: 0;
+}
+
+.next-button {
+  right: 0;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .footer {
   display: block;
   background-color: rgba(40, 40, 40, 0.7);

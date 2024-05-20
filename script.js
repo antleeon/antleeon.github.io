@@ -1,15 +1,10 @@
-var modal = document.getElementById("slideshow_modal");
-
-var img = document.getElementById("slsh_img_1");
-var modalImg = document.getElementById("img_1");
-img.onclick = function(){
+function OpenNthSlide(n) {
+  let modal = document.getElementById("slideshow_modal");
+  let modalImg = document.getElementsByClassName("modal-image")[0];
   modal.style.display = "block";
   modalImg.src = this.src;
-  captionText.innerHTML = this.alt;
 }
 
-var span = document.getElementsByClassName("close-button")[0];
-
-span.onclick = function() {
+function CloseSlides() {
   modal.style.display = "none";
 }

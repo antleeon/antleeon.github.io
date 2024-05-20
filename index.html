@@ -23,11 +23,13 @@
         <img class="my-picture-image" src="media/my_picture.jpg">
       </div>
       <div class="overlay-card">
-        <img class="slideshow-image" id="slsh_img_1" src="media/img_houses.jpg" alt="Houses">
-        <img class="slideshow-image" id="slsh_img_2" src="media/img_castle.jpg" alt="Castle">
-        <img class="slideshow-image" id="slsh_img_3" src="media/img_ships.jpg" alt="Ships">
+        <img class="slideshow-image" onclick="OpenNthSlide(1)" id="slsh_img_1" src="media/img_houses.jpg" alt="Houses">
+        <img class="slideshow-image" onclick="OpenNthSlide(2)" id="slsh_img_2" src="media/img_castle.jpg" alt="Castle">
+        <img class="slideshow-image" onclick="OpenNthSlide(3)" id="slsh_img_3" src="media/img_ships.jpg" alt="Ships">
         <div id="slideshow_modal" class="modal-slideshow">
-          <span class="close-button">&times;</span>
+          <span class="close-button" onclick="CloseSlides()">&times;</span>
+          <span class="prev-button" onclick="PlusSlides(-1)">&#10094;</span>
+          <span class="next-button" onclick="PlusSlides(1)">&#10095;</span>
           <img class="modal-image" id="img_1">
         </div>
       </div>
