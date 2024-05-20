@@ -55,6 +55,7 @@ body {
 
 .card-list {
   height: 90%;
+  padding: 15px 15px 15px 15px;
   margin: auto auto auto auto;
 }
 
@@ -79,7 +80,8 @@ body {
   width: 40%;
   max-width: 400px;
   border-radius: 50%;
-  margin: 40px auto 40px auto;
+  padding: 15px 15px 15px 15px;
+  margin: auto auto auto auto;
 }
 
 .slideshow-image {
