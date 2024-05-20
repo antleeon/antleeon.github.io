@@ -39,7 +39,7 @@ body {
   font-size: 0;
   width: 100%;
   height: 100%;
-  margin: 10px 10px 10px 10px;
+  padding: 20px 20px 20px 20px;
 }
 
 .overlay-card {
@@ -55,17 +55,19 @@ body {
   color: white;
   height: 30vh;
   margin-bottom: 0px;
-  padding: 20px 20px 20px 20px;
+  padding: 40px 20px 40px 20px;
 }
 
 .footer-author {
   text-align: center;
   font-size: 24px;
+  margin: 25px 25px 25px 25px;
 }
 
 .footer-line {
   text-align: left;
   font-size: 18px;
+  margin: 20px 20px 20px 20px;
 }
 
 .footer-link {
