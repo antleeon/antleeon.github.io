@@ -7,7 +7,7 @@ function OpenNthSlide(n) {
   let img = document.getElementsByClassName("slideshow-image")[n - 1];
   let modalImg = document.getElementsByClassName("modal-image")[0];
   
-  modal.style.display = "block";
+  modal.style.display = "flex";
   modalImg.src = img.src;
   slideIndex = n;
   
