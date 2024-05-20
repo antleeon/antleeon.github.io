@@ -6,6 +6,7 @@
 }
 
 body {
+  height: 100vh;
   font-family: 'Helvetica', 'Arial', sans-serif;
   background-image: url(media/background_2.jpg);
   background-size: cover;
@@ -24,14 +25,15 @@ body {
 .header-title {
   font-size: 50px;
   font-weight: 300;
-  margin: auto;
+  margin-top: auto;
+  margin-left: 20px;
 }
 
 .avatar-image {
   object-fit: cover;
   height: 70%;
   border-radius: 50%;
-  margin: auto 50px;
+  margin: auto 40px;
 }
 
 .content {
