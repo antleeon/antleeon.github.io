@@ -115,7 +115,7 @@ body {
 }
 
 .modal-image {
-  display: block;
+  display: flex;
   width: 80%;
   max-width: 1000px;
   margin: auto auto auto auto;
