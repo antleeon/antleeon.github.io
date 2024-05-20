@@ -198,13 +198,15 @@ body {
 
 .feedback-button {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
+  z-index: 1;
   bottom: 40px;
   right: 40px;
+  margin: auto auto auto auto;
   width: 10%;
   max-width: 50px;
+  overflow: auto;
   border-radius: 50%;
-  margin: auto 40px auto 40px;
 }
 
 .feedback-button:hover,
