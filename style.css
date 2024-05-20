@@ -51,11 +51,18 @@ body {
   padding: 20px 20px 20px 20px;
 }
 
-.content-title {
+.card-title {
   text-align: center;
   font-size: 40px;
   font-weight: 300;
   margin: 30px 30px 30px 30px;
+}
+
+.card-line {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 200;
+  margin: 25px 25px 25px 25px;
 }
 
 .my-picture-image {
