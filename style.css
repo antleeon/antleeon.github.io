@@ -60,11 +60,16 @@ body {
 .footer-author {
   text-align: center;
   font-size: 24px;
-  margin: 10% auto 10% auto;
+  margin: 30px auto 30px auto;
+}
+
+.footer-line {
+  text-align: left;
+  font-size: 18px;
+  margin: 20px auto 20px auto;
 }
 
 .footer-link {
-  text-align: left;
-  font-size: 18px;
-  margin: 10% auto 10% auto;
+  text-decoration: underline;
+  color: white;
 }
