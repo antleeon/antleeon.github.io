@@ -50,7 +50,7 @@ body {
 }
 
 .footer {
-  display: flex;
+  display: block;
   background-color: rgba(40, 40, 40, 0.7);
   color: white;
   height: 30vh;
@@ -69,7 +69,14 @@ body {
   margin: 20px auto 20px auto;
 }
 
-.footer-link {
-  text-decoration: underline;
+.footer-link:active {
+  color: white;
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+.footer-link:visited {
   color: white;
 }
