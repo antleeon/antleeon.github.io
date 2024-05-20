@@ -129,6 +129,7 @@ body {
 }
 
 .close-button {
+  cursor: pointer;
   position: absolute;
   top: 15px;
   right: 35px;
@@ -140,9 +141,11 @@ body {
 
 .close-button:hover,
 .close-button:focus {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.close-button:focus {
   color: grey;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .prev-button,
@@ -167,8 +170,15 @@ body {
 }
 
 .prev-button:hover,
-.next-button:hover {
+.next-button:hover,
+.prev-button:focus,
+.next-button:focus {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.prev-button:focus,
+.next-button:focus {
+  color: grey;
 }
 
 .footer {
