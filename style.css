@@ -50,7 +50,7 @@ body {
 }
 
 .footer {
-  display: flex;
+  display: block;
   background-color: rgba(40, 40, 40, 0.7);
   color: white;
   height: 30vh;
@@ -58,14 +58,12 @@ body {
 }
 
 .footer-author {
-  display: block;
   text-align: center;
   font-size: 24px;
   margin: 40px 25px 40px 25px;
 }
 
 .footer-line {
-  display: block;
   text-align: left;
   font-size: 18px;
   margin: 20px 25px 20px 25px;
