@@ -3,7 +3,7 @@ var minIndex = 1;
 var maxIndex = 3;
 
 function OpenNthSlide(n) {
-  let modal = document.getElementById("slideshow_modal");
+  let modal = document.getElementsByClassName("modal-slideshow")[0];
   let img = document.getElementsByClassName("slideshow-image")[n - 1];
   let modalImg = document.getElementsByClassName("modal-image")[0];
   
@@ -25,6 +25,16 @@ function PlusSlides(n) {
 }
 
 function CloseSlides() {
-  let modal = document.getElementById("slideshow_modal");
+  let modal = document.getElementsByClassName("modal-slideshow")[0];
+  modal.style.display = "none";
+}
+
+function OpenFeedbackForm() {
+  let modal = document.getElementsByClassName("modal-feedback-form")[0];
+  modal.style.display = "flex";
+}
+
+function CloseForm() {
+  let modal = document.getElementsByClassName("modal-feedback-form")[0];
   modal.style.display = "none";
 }

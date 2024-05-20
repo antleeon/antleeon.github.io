@@ -23,14 +23,35 @@
         <img class="my-picture-image" src="media/my_picture.jpg">
       </div>
       <div class="overlay-card">
-        <img class="slideshow-image" onclick="OpenNthSlide(1)" id="slsh_img_1" src="media/img_houses.jpg" alt="Houses">
-        <img class="slideshow-image" onclick="OpenNthSlide(2)" id="slsh_img_2" src="media/img_castle.jpg" alt="Castle">
-        <img class="slideshow-image" onclick="OpenNthSlide(3)" id="slsh_img_3" src="media/img_ships.jpg" alt="Ships">
-        <div id="slideshow_modal" class="modal-slideshow">
+        <img class="slideshow-image" onclick="OpenNthSlide(1)" src="media/img_houses.jpg" alt="Houses">
+        <img class="slideshow-image" onclick="OpenNthSlide(2)" src="media/img_castle.jpg" alt="Castle">
+        <img class="slideshow-image" onclick="OpenNthSlide(3)" src="media/img_ships.jpg" alt="Ships">
+        <div class="modal-slideshow">
           <span class="close-button" onclick="CloseSlides()">&times;</span>
           <span class="prev-button" onclick="PlusSlides(-1)">&#10094;</span>
           <span class="next-button" onclick="PlusSlides(1)">&#10095;</span>
-          <img class="modal-image" id="img_1">
+          <img class="modal-image">
+        </div>
+      </div>
+      <img class="feedback-button" onclick="OpenFeedbackForm()" src="media/feedback_button.png">
+      <div class="modal-feedback-form">
+        <span class="close-button" onclick="CloseForm()">&times;</span>
+        <div class="overlay-card">
+          <form action="action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="australia">Australia</option>
+              <option value="canada">Canada</option>
+              <option value="usa">USA</option>
+            </select>
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            <input type="submit" value="Submit">
+          </form>
         </div>
       </div>
     </section>
@@ -47,7 +68,6 @@
       </p>
       <p class="footer-line">8(985)344-00-51</p>
     </footer>
-    <img class="feedback-button" onclick="OpenFeedbackForm()" src="media/feedback_button.png">
   </body>
 </html>
 
