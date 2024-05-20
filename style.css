@@ -31,13 +31,14 @@ body {
   object-fit: cover;
   height: 70%;
   border-radius: 50%;
-  margin: auto 40px;
+  margin: auto 40px auto 40px;
 }
 
 .content {
   font-size: 0;
+  height: 50vh;
   width: 790px;
-  margin: 100px auto 50px;
+  margin: 60px auto 60px;
 }
 
 .overlay {
