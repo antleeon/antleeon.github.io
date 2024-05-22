@@ -35,19 +35,31 @@ function OpenFeedbackForm() {
 }
 
 const email = document.getElementById("mail");
+const subject = document.getElementById("subject");
 
 const email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
+const subject_regex = /^[а-яА-Я0-9_.,'"!?;:& ]+$/i;
 
 const validateEmail = (email) => {
-  let result = email.match(regex);
+  let result = email.match(email_regex);
   
   let result_color = result ? "#84ff80" : "#ff8080";
-  email.style.color = result_color;
+  email.style.background-color = result_color;
   
   return result;
 };
 
+const validateSubject = (subject) => {
+  let result = subject.match(subject_regex);
+  
+  let result_color = result ? "#84ff80" : "#ff8080";
+  subject.style.background-color = result_color;
+  
+  return result;
+}
+
 email.addEventListener("input", validateEmail);
+subject.addEventListener("input", validateSubject);
 
 function CloseForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
