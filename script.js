@@ -100,11 +100,8 @@ function sendPost(post_title, post_body) {
   });
 }
 
-const validateAndPost = () => {
-  var posted = postForm();
-};
-
-feedback_form.addEventListener("submit", validateAndPost);
+document.getElementById("mail").addEventListener("input", validateEmail());
+document.getElementById("feedback").addEventListener("submit", postForm());
 
 function closeForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
