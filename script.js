@@ -1,6 +1,6 @@
 var slideIndex = 1;
-var minIndex = 1;
-var maxIndex = 3;
+const minIndex = 1;
+const maxIndex = 3;
 
 function OpenNthSlide(n) {
   let modal = document.getElementsByClassName("modal-slideshow")[0];
@@ -33,6 +33,16 @@ function OpenFeedbackForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
   modal.style.display = "flex";
 }
+
+const email = document.getElementById("mail");
+
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("Not a valid e-mail address");
+  } else {
+    email.setCustomValidity("");
+  }
+});
 
 function CloseForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
