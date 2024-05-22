@@ -130,7 +130,7 @@ function setMessage() {
       now.setMonth(now.getMonth() + 1);
       var expire = now.toUTCString();
     
-      document.cookie = name + "=" + value + "; expires=" + expire + "; path=/"; 
+      document.cookie = name + "=" + value + "; expires=" + expire + ";"; 
     }, 30000);
   }
 }
