@@ -1,4 +1,4 @@
-// image slides
+// image gallery
 
 var slideIndex = 1;
 const minIndex = 1;
