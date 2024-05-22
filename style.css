@@ -220,7 +220,7 @@ body {
 
 .feedback-button {
   cursor: pointer;
-  fill: lightblue;
+  fill: #5f7bb8;
   position: fixed;
   z-index: 1;
   bottom: 50px;
@@ -235,13 +235,9 @@ body {
 }
 
 @keyframes jiggle {
-  20% { transform: rotate(40deg); }
-  25% { transform: rotate(45deg); }
-  30% { transform: rotate(40deg); }
+  25% { transform: rotate(40deg); }
   50% { transform: rotate(0deg); }
-  70% { transform: rotate(-40deg); }
-  75% { transform: rotate(-45deg); }
-  80% { transform: rotate(-40deg); }
+  75% { transform: rotate(-40deg); }
   100% { transform: rotate(0deg); }
 }
 
