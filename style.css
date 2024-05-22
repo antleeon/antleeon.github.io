@@ -155,7 +155,7 @@ body {
 .close-button {
   cursor: pointer;
   position: absolute;
-  padding: 15px 15px 15px 15px;
+  padding: 5px 15px 5px 15px;
   top: 15px;
   right: 35px;
   color: white;
@@ -191,12 +191,12 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.close-button:focus,
+/*.close-button:focus,
 .prev-button:focus,
 .next-button:focus {
   background-color: rgba(0, 0, 0, 0.6);
   color: grey;
-}
+}*/
 
 .footer {
   display: block;
@@ -241,10 +241,10 @@ body {
   box-shadow: 0px 0px 10px rgba(255, 255, 255, .9);
 }
 
-.feedback-button:focus {
+/*.feedback-button:focus {
   box-shadow: 0px 0px 10px rgba(255, 255, 255, .9);
   opacity: 0.75;
-}
+}*/
 
 .feedback-form {
   display: block;
