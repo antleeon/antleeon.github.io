@@ -100,8 +100,8 @@ function sendPost(post_title, post_body) {
   });
 }
 
-document.getElementById("mail").addEventListener("input", validateEmail());
-document.getElementById("feedback").addEventListener("submit", postForm());
+email.addEventListener("input", validateEmail);
+feedback_form.addEventListener("submit", postForm);
 
 function closeForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
