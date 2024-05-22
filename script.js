@@ -114,7 +114,7 @@ function setMessage() {
   var all_cookies = document.cookie.split(';');
   var found_cookie = false;
   for (var i = 0; i < all_cookies.length; i++) {
-    name = cookiearray[i].split('=')[0];
+    name = all_cookies[i].split('=')[0];
     if (name == 'message_sent') {
       found_cookie = true;
       break;
