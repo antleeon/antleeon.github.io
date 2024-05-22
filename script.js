@@ -46,7 +46,7 @@ var feedback_form = document.getElementById("feedback");
 const email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 const subject_regex = /^[а-яА-Я0-9_.,'"!?;:& ]+$/i;
 
-function validateEmail(e) {
+function validateEmail() {
   let result = email.value.match(email_regex);
   
   let result_color = result ? "#84ff80" : "#ff8080";
@@ -55,7 +55,7 @@ function validateEmail(e) {
   return result;
 }
 
-function validateSubject(e) {
+function validateSubject() {
   let result = subject.value.match(subject_regex);
   
   let result_color = result ? "#84ff80" : "#ff8080";
@@ -64,8 +64,8 @@ function validateSubject(e) {
   return result;
 }
 
-function postForm(e) {
-  const correctly = validateEmail(e) && validateSubject(e);
+function postForm() {
+  const correctly = validateEmail() && validateSubject();
   let button = document.getElementById("fsubmit");
   let name = document.getElementById("fname").value;
   let subj = subject.value;
@@ -74,15 +74,16 @@ function postForm(e) {
   if (!correctly) {
     button.style.backgroundColor = "#ff8080";
     button.value = "Invalid input";
-  button.disabled = false;
-  } else {
-    button.style.backgroundColor = "#84ff80";
-    button.value = "Sending...";
-    delay(2000);
-    sendPost(name, subj);
-    button.value = "Submitted";
+    button.disabled = false;
+    return false;
   }
+  button.style.backgroundColor = "#84ff80";
+  button.value = "Sending...";
+  delay(2000);
+  sendPost(name, subj);
+  button.value = "Submitted";
   document.body.style.cursor = 'default';
+  return true;
 }
 
 function delay(ms) {
@@ -99,10 +100,11 @@ function sendPost(post_title, post_body) {
   });
 }
 
-email.addEventListener("input", validateEmail(e));
-subject.addEventListener("input", validateSubject(e));
+const validateAndPost = () => {
+  var posted = postForm();
+};
 
-feedback_form.addEventListener("submit", postForm(e));
+feedback_form.addEventListener("submit", validateAndPost);
 
 function closeForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
