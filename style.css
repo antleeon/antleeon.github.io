@@ -231,12 +231,17 @@ body {
 }
 
 .feedback-button:hover {
-  animation: 1.3s jiggle ease;
+  animation: 1.5s jiggle ease;
 }
 
 @keyframes jiggle {
+  20% { transform: rotate(40deg); }
   25% { transform: rotate(45deg); }
+  30% { transform: rotate(40deg); }
+  50% { transform: rotate(0deg); }
+  70% { transform: rotate(-40deg); }
   75% { transform: rotate(-45deg); }
+  80% { transform: rotate(-40deg); }
   100% { transform: rotate(0deg); }
 }
 
