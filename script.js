@@ -80,10 +80,15 @@ function postForm() {
   button.style.backgroundColor = "#84ff80";
   button.value = "Sending...";
   delay(2000);
-  sendPost(name, subj);
-  button.value = "Submitted";
-  document.body.style.cursor = 'default';
-  return true;
+  sendPost(name, subj).then(() => {
+    button.value = "Submitted";
+    document.body.style.cursor = 'default';
+    return true;
+  }).catch(() => {
+    button.style.backgroundColor = "#ff8080";
+    button.value = "Error";
+    return false;
+  });
 }
 
 function delay(ms) {
