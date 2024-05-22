@@ -220,6 +220,7 @@ body {
 
 .feedback-button {
   cursor: pointer;
+  fill: blue;
   position: fixed;
   z-index: 1;
   bottom: 50px;
@@ -230,13 +231,13 @@ body {
 }
 
 .feedback-button:hover {
-  animation: 0.7s jiggle ease;
+  animation: 1.3s jiggle ease;
 }
 
 @keyframes jiggle {
-  25% { transform: rotate(55deg); }
-  75% { transform: rotate(-110deg); }
-  100% { transform: rotate(55deg); }
+  25% { transform: rotate(45deg); }
+  75% { transform: rotate(-45deg); }
+  100% { transform: rotate(0deg); }
 }
 
 .feedback-form {
