@@ -220,7 +220,7 @@ body {
 
 .feedback-button {
   cursor: pointer;
-  fill: blue;
+  fill: lightblue;
   position: fixed;
   z-index: 1;
   bottom: 50px;
