@@ -35,7 +35,7 @@
       <div class="modal-feedback-form">
         <span class="close-button" onclick="CloseForm()">&times;</span>
         <div class="popup-card">
-          <form class="feedback-form" action="https://jsonplaceholder.typicode.com/posts" enctype="text/plain" method="GET">
+          <form class="feedback-form" id="feedback" enctype="text/plain" method="POST">
             <label class="form-label" for="fname">First name</label>
             <input class="form-input" type="text" id="fname" placeholder="your name">
             <label class="form-label" for="lname">Last name</label>
@@ -44,7 +44,7 @@
             <input class="form-input" type="email" id="mail" placeholder="your e-mail" required>
             <label class="form-label" for="subject">Subject</label>
             <textarea class="form-field" id="subject" placeholder="your feedback here" required></textarea>
-            <input class="form-submit" type="submit" value="Submit">
+            <input class="form-submit" type="submit" id="fsubmit" value="Submit">
           </form>
         </div>
       </div>
