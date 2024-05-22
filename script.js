@@ -46,7 +46,7 @@ var feedback_form = document.getElementById("feedback");
 const email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 const subject_regex = /^[а-яА-Я0-9_.,'"!?;:& ]+$/i;
 
-function validateEmail() {
+function validateEmail(e) {
   let result = email.value.match(email_regex);
   
   let result_color = result ? "#84ff80" : "#ff8080";
@@ -55,7 +55,7 @@ function validateEmail() {
   return result;
 }
 
-function validateSubject() {
+function validateSubject(e) {
   let result = subject.value.match(subject_regex);
   
   let result_color = result ? "#84ff80" : "#ff8080";
@@ -64,8 +64,8 @@ function validateSubject() {
   return result;
 }
 
-function postForm() {
-  const correctly = validateEmail && validateSubject;
+function postForm(e) {
+  const correctly = validateEmail(e) && validateSubject(e);
   let button = document.getElementById("fsubmit");
   let name = document.getElementById("fname").value;
   let subj = subject.value;
@@ -99,10 +99,10 @@ function sendPost(post_title, post_body) {
   });
 }
 
-email.addEventListener("input", function validateEmail());
-subject.addEventListener("input", validateSubject());
+email.addEventListener("input", validateEmail(e));
+subject.addEventListener("input", validateSubject(e));
 
-feedback_form.addEventListener("submit", postForm());
+feedback_form.addEventListener("submit", postForm(e));
 
 function closeForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
