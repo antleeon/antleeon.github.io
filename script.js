@@ -50,7 +50,7 @@ function validateEmail() {
   let result = email.value.match(email_regex);
   
   let result_color = result ? "#84ff80" : "#ff8080";
-  email.style.background-color = result_color;
+  email.style.backgroundColor = result_color;
   
   return result;
 }
