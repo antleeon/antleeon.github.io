@@ -121,15 +121,17 @@ function setMessage() {
     }
   }
   if (!found_cookie) {
-    alert("You can fill out the feedback form");
-    var name = "mesage_sent";
-    var value = "true";
+    setTimeout(() => {
+      alert("You can fill out the feedback form");
+      var name = "mesage_sent";
+      var value = "true";
     
-    var now = new Date();
-    now.setMonth(now.getMonth() + 1);
-    var expire = now.toUTCString();
+      var now = new Date();
+      now.setMonth(now.getMonth() + 1);
+      var expire = now.toUTCString();
     
-    document.cookie = name + "=" + value + "; expires=" + expire + "; path=/"; 
+      document.cookie = name + "=" + value + "; expires=" + expire + "; path=/"; 
+    }, 30000);
   }
 }
 
