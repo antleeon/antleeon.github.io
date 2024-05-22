@@ -36,13 +36,18 @@ function OpenFeedbackForm() {
 
 const email = document.getElementById("mail");
 
-email.addEventListener("input", function (event) {
-  if (email.validity.typeMismatch) {
-    email.setCustomValidity("Not a valid e-mail address");
-  } else {
-    email.setCustomValidity("");
-  }
-});
+const email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
+
+const validateEmail = (email) => {
+  let result = email.match(regex);
+  
+  let result_color = result ? "#84ff80" : "#ff8080";
+  email.style.color = result_color;
+  
+  return result;
+};
+
+email.addEventListener("input", validateEmail);
 
 function CloseForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
