@@ -4,7 +4,7 @@ var slideIndex = 1;
 const minIndex = 1;
 const maxIndex = 3;
 
-function OpenNthSlide(n) {
+function openNthSlide(n) {
   let modal = document.getElementsByClassName("modal-slideshow")[0];
   let img = document.getElementsByClassName("slideshow-image")[n - 1];
   let modalImg = document.getElementsByClassName("modal-image")[0];
@@ -22,26 +22,26 @@ function OpenNthSlide(n) {
   else { next_btn.style.display = "flex"; }
 }
 
-function PlusSlides(n) {
-  OpenNthSlide(slideIndex + n);
+function plusSlides(n) {
+  openNthSlide(slideIndex + n);
 }
 
-function CloseSlides() {
+function closeSlides() {
   let modal = document.getElementsByClassName("modal-slideshow")[0];
   modal.style.display = "none";
 }
 
-function OpenFeedbackForm() {
+function openFeedbackForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
   modal.style.display = "flex";
 }
 
 // feedback form
 
-const email = document.getElementById("mail");
-const subject = document.getElementById("subject");
+var email = document.getElementById("mail");
+var subject = document.getElementById("subject");
 
-const feedback_form = document.getElementById("feedback");
+var feedback_form = document.getElementById("feedback");
 
 const email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 const subject_regex = /^[а-яА-Я0-9_.,'"!?;:& ]+$/i;
@@ -104,7 +104,7 @@ subject.addEventListener("input", validateSubject());
 
 feedback_form.addEventListener("submit", postForm());
 
-function CloseForm() {
+function closeForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
   modal.style.display = "none";
 }
@@ -135,3 +135,27 @@ function setMessage() {
 }
 
 setMessage();
+
+// countdown timer
+
+var cowntdown_timer = document.getElementById("countdowntimer");
+const countdown_date = new Date("May 31, 2027 23:59:59").getTime();
+
+function updateCountdown() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdown_timer.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    countdown_timer.innerHTML = "Already got!";
+  }
+}
+
+var countdownUpdater = setInterval(updateCountdown() , 1000);

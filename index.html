@@ -17,23 +17,25 @@
         <div class="card-list">
           <h2 class="card-title">My name is Anton Antipenko,</h2>
           <p class="card-line">I'm a first year student at HSSE MIPT. I love coding, and in my free time I listen to music, also I like painting and playing board games.</p>
+          <p class="card-line">I'm (hopefully) getting a bachelor's degree in:</p>
+          <p class="card-line" id="countdowntimer">countdown</p>
         </div>
         <img class="my-picture-image" src="media/my_picture.jpg">
       </div>
       <div class="overlay-card">
-        <img class="slideshow-image" onclick="OpenNthSlide(1)" src="media/img_houses.jpg" alt="Houses">
-        <img class="slideshow-image" onclick="OpenNthSlide(2)" src="media/img_castle.jpg" alt="Castle">
-        <img class="slideshow-image" onclick="OpenNthSlide(3)" src="media/img_ships.jpg" alt="Ships">
+        <img class="slideshow-image" onclick="openNthSlide(1)" src="media/img_houses.jpg" alt="Houses">
+        <img class="slideshow-image" onclick="openNthSlide(2)" src="media/img_castle.jpg" alt="Castle">
+        <img class="slideshow-image" onclick="openNthSlide(3)" src="media/img_ships.jpg" alt="Ships">
         <div class="modal-slideshow">
-          <span class="close-button" onclick="CloseSlides()">&times;</span>
-          <span class="prev-button" onclick="PlusSlides(-1)">&#10094;</span>
-          <span class="next-button" onclick="PlusSlides(1)">&#10095;</span>
+          <span class="close-button" onclick="closeSlides()">&times;</span>
+          <span class="prev-button" onclick="plusSlides(-1)">&#10094;</span>
+          <span class="next-button" onclick="plusSlides(1)">&#10095;</span>
           <img class="modal-image">
         </div>
       </div>
-      <img class="feedback-button" onclick="OpenFeedbackForm()" src="media/feedback_button.png">
+      <img class="feedback-button" onclick="openFeedbackForm()" src="media/feedback_button.png">
       <div class="modal-feedback-form">
-        <span class="close-button" onclick="CloseForm()">&times;</span>
+        <span class="close-button" onclick="closeForm()">&times;</span>
         <div class="popup-card">
           <form class="feedback-form" id="feedback" enctype="text/plain" method="POST">
             <label class="form-label" for="fname">First name</label>
