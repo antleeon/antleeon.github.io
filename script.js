@@ -139,7 +139,7 @@ setMessage();
 
 // countdown timer
 
-var cowntdown_timer = document.getElementById("countdowntimer");
+var countdown_timer = document.getElementById("countdowntimer");
 const countdown_date = new Date("May 31, 2027 23:59:59").getTime();
 
 function updateCountdown() {
