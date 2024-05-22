@@ -99,7 +99,7 @@ function sendPost(post_title, post_body) {
   });
 }
 
-email.addEventListener("input", validateEmail());
+email.addEventListener("input", function validateEmail());
 subject.addEventListener("input", validateSubject());
 
 feedback_form.addEventListener("submit", postForm());
