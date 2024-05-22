@@ -46,7 +46,7 @@ var feedback_form = document.getElementById("feedback");
 const email_regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i;
 const subject_regex = /^[а-яА-Я0-9_.,'"!?;:& ]+$/i;
 
-function validateEmail() {
+function validateEmail() { // email validation
   let result = email.value.match(email_regex);
   
   let result_color = result ? "#84ff80" : "#ff8080";
@@ -55,7 +55,7 @@ function validateEmail() {
   return result;
 }
 
-function validateSubject() {
+function validateSubject() { // text language validation
   let result = subject.value.match(subject_regex);
   
   let result_color = result ? "#84ff80" : "#ff8080";
