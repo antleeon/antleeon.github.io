@@ -108,3 +108,30 @@ function CloseForm() {
   let modal = document.getElementsByClassName("modal-feedback-form")[0];
   modal.style.display = "none";
 }
+
+// 30-seconds message
+
+function setMessage() {
+  var all_cookies = document.cookie.split(';');
+  var found_cookie = false;
+  for (var i = 0; i < all_cookies.length; i++) {
+    name = cookiearray[i].split('=')[0];
+    if (name == 'message_sent') {
+      found_cookie = true;
+      break;
+    }
+  }
+  if (!found_cookie) {
+    alert("You can fill out the feedback form");
+    var name = "mesage_sent";
+    var value = "true";
+    
+    var now = new Date();
+    now.setMonth(now.getMonth() + 1);
+    var expire = now.toUTCString();
+    
+    document.cookie = name + "=" + value + "; expires=" + expire + "; path=/"; 
+  }
+}
+
+setMessage();
