@@ -23,31 +23,27 @@
     </header>
     <main>
       <section class="content" id="main">
-        <div class="overlay-card">
-          <div class="card-list">
-            <h2 class="card-title">My name is Anton Antipenko,</h2>
-            <p class="card-line">I'm a first year student at HSSE MIPT. I love coding, and in my free time I listen to music, also I like painting and playing board games.</p>
-            <p class="card-line">I'm (hopefully) getting a bachelor's degree in:</p>
-            <span class="card-line" id="countdowntimer">countdown</span>
+        <div class="card">
+          <div class="card_text">
+            <h2 class="card_title">My name is Anton Antipenko,</h2>
+            <p class="card_line">I'm a first year student at HSSE MIPT. I love coding, and in my free time I listen to music, also I like painting and playing board games.</p>
+            <p class="card_line">I'm (hopefully) getting a bachelor's degree in:</p>
+            <p class="card_line" id="countdowntimer">countdown</p>
           </div>
           <img class="my-picture-image" src="img/my_picture.jpg">
         </div>
       </section>
-      <section class="content" id="gallery"></section>
-        <div class="overlay-card">
-          <img class="slideshow-image" onclick="openNthSlide(1)" src="img/img_houses.jpg" alt="Houses">
-          <img class="slideshow-image" onclick="openNthSlide(2)" src="img/img_castle.jpg" alt="Castle">
-          <img class="slideshow-image" onclick="openNthSlide(3)" src="img/img_ships.jpg" alt="Ships">
-          <div class="modal-slideshow">
-            <button class="close-button" onclick="closeSlides()">&times;</button>
-            <button class="prev-button" onclick="plusSlides(-1)">&#10094;</button>
-            <button class="next-button" onclick="plusSlides(1)">&#10095;</button>
-            <img class="modal-image">
+      <section class="content" id="gallery">
+        <div class="card">
+          <div class="gallery">
+            <img class="gallery_image" onclick="openNthSlide(1)" src="img/img_houses.jpg" alt="Houses">
+            <img class="gallery_image" onclick="openNthSlide(2)" src="img/img_castle.jpg" alt="Castle">
+            <img class="gallery_image" onclick="openNthSlide(3)" src="img/img_ships.jpg" alt="Ships">
           </div>
         </div>
       </section>
       <section class="overlay">
-        <button feedback-button></button>
+        <button class="feedback-button" src="img/message.svg" onclick="openFeedbackForm()"></button>
       </section>
       <section class="modal">
         <div class="modal_feedback-form">
@@ -65,6 +61,12 @@
               <input class="form-submit" type="submit" id="fsubmit" value="Submit">
             </form>
           </div>
+        </div>
+        <div class="modal_slideshow">
+          <button class="close-button" onclick="closeSlides()">&times;</button>
+          <button class="prev-button" onclick="plusSlides(-1)">&#10094;</button>
+          <button class="next-button" onclick="plusSlides(1)">&#10095;</button>
+          <img class="modal_image">
         </div>
       </section>
     </main>
