@@ -2,71 +2,89 @@
 <html> 
   <head> 
     <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antleeõn personal page</title> 
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image" href="media/cat_icon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image" href="img/icon.ico">
   </head> 
   <body>
     <header class="header">
-      <img class="avatar-image" src="media/ava.png">
-      <h1 class="header-title">Hi, I'm Anton</h1>
+      <div class="header_block">
+        <a class="header_title" href="/">
+          <img class="logo" src="img/logo.png" alt="Logo">
+          <h1>My personal page</h1>
+        </a>
+        <nav class="menu">
+          <a href="#main">Home</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contacts">Contact</a>
+        </nav>
+      </div>
     </header>
-    <section class="content">
-      <div class="overlay-card">
-        <div class="card-list">
-          <h2 class="card-title">My name is Anton Antipenko,</h2>
-          <p class="card-line">I'm a first year student at HSSE MIPT. I love coding, and in my free time I listen to music, also I like painting and playing board games.</p>
-          <p class="card-line">I'm (hopefully) getting a bachelor's degree in:</p>
-          <p class="card-line" id="countdowntimer">countdown</p>
+    <main>
+      <section class="content" id="main">
+        <div class="overlay-card">
+          <div class="card-list">
+            <h2 class="card-title">My name is Anton Antipenko,</h2>
+            <p class="card-line">I'm a first year student at HSSE MIPT. I love coding, and in my free time I listen to music, also I like painting and playing board games.</p>
+            <p class="card-line">I'm (hopefully) getting a bachelor's degree in:</p>
+            <span class="card-line" id="countdowntimer">countdown</span>
+          </div>
+          <img class="my-picture-image" src="img/my_picture.jpg">
         </div>
-        <img class="my-picture-image" src="media/my_picture.jpg">
-      </div>
-      <div class="overlay-card">
-        <img class="slideshow-image" onclick="openNthSlide(1)" src="media/img_houses.jpg" alt="Houses">
-        <img class="slideshow-image" onclick="openNthSlide(2)" src="media/img_castle.jpg" alt="Castle">
-        <img class="slideshow-image" onclick="openNthSlide(3)" src="media/img_ships.jpg" alt="Ships">
-        <div class="modal-slideshow">
-          <span class="close-button" onclick="closeSlides()">&times;</span>
-          <span class="prev-button" onclick="plusSlides(-1)">&#10094;</span>
-          <span class="next-button" onclick="plusSlides(1)">&#10095;</span>
-          <img class="modal-image">
+      </section>
+      <section class="content" id="gallery"></section>
+        <div class="overlay-card">
+          <img class="slideshow-image" onclick="openNthSlide(1)" src="img/img_houses.jpg" alt="Houses">
+          <img class="slideshow-image" onclick="openNthSlide(2)" src="img/img_castle.jpg" alt="Castle">
+          <img class="slideshow-image" onclick="openNthSlide(3)" src="img/img_ships.jpg" alt="Ships">
+          <div class="modal-slideshow">
+            <button class="close-button" onclick="closeSlides()">&times;</button>
+            <button class="prev-button" onclick="plusSlides(-1)">&#10094;</button>
+            <button class="next-button" onclick="plusSlides(1)">&#10095;</button>
+            <img class="modal-image">
+          </div>
         </div>
-      </div>
-      <svg class="feedback-button" onclick="openFeedbackForm()" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-        <path fill-rule="evenodd" d="M3 5.983C3 4.888 3.895 4 5 4h14c1.105 0 2 .888 2 1.983v8.923a1.992 1.992 0 0 1-2 1.983h-6.6l-2.867 2.7c-.955.899-2.533.228-2.533-1.08v-1.62H5c-1.105 0-2-.888-2-1.983V5.983Zm5.706 3.809a1 1 0 1 0-1.412 1.417 1 1 0 1 0 1.412-1.417Zm2.585.002a1 1 0 1 1 .003 1.414 1 1 0 0 1-.003-1.414Zm5.415-.002a1 1 0 1 0-1.412 1.417 1 1 0 1 0 1.412-1.417Z" clip-rule="evenodd"/>
-      </svg>
-      <div class="modal-feedback-form">
-        <span class="close-button" onclick="closeForm()">&times;</span>
-        <div class="popup-card">
-          <form class="feedback-form" id="feedback" enctype="text/plain" method="POST">
-            <label class="form-label" for="fname">First name</label>
-            <input class="form-input" type="text" id="fname" placeholder="your name">
-            <label class="form-label" for="lname">Last name</label>
-            <input class="form-input" type="text" id="lname" placeholder="your last name">
-            <label class="form-label" for="mail">E-mail</label>
-            <input class="form-input" type="email" id="mail" placeholder="your e-mail" required>
-            <label class="form-label" for="subject">Subject</label>
-            <textarea class="form-field" id="subject" placeholder="your feedback here" required></textarea>
-            <input class="form-submit" type="submit" id="fsubmit" value="Submit">
-          </form>
+      </section>
+      <section class="overlay">
+        <button feedback-button></button>
+      </section>
+      <section class="modal">
+        <div class="modal_feedback-form">
+          <button class="close-button" onclick="closeForm()">&times;</button>
+          <div class="popup-card">
+            <form class="feedback-form" id="feedback" enctype="text/plain" method="POST">
+              <label class="form-label" for="fname">First name</label>
+              <input class="form-input" type="text" id="fname" placeholder="your name">
+              <label class="form-label" for="lname">Last name</label>
+              <input class="form-input" type="text" id="lname" placeholder="your last name">
+              <label class="form-label" for="mail">E-mail</label>
+              <input class="form-input" type="email" id="mail" placeholder="your e-mail" required>
+              <label class="form-label" for="subject">Subject</label>
+              <textarea class="form-field" id="subject" placeholder="your feedback here" required></textarea>
+              <input class="form-submit" type="submit" id="fsubmit" value="Submit">
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
     <footer class="footer">
-      <h4 class="footer-author">Anton Antleeõn</h4>
-      <p class="footer-line">
-        <a class="footer-link" href = "https://t.me/antleeon" target="_blank">Telegram</a>
-      </p>
-      <p class="footer-line">
-        <a class="footer-link" href = "https://www.instagram.com/antleeon/" target="_blank">Instagram</a>
-      </p>
-      <p class="footer-line">
-        <a class="footer-link" href = "mailto:antipenkoanton21@gmail.com" target="_blank">antipenkoanton21@gmail.com</a>
-      </p>
-      <p class="footer-line">8(985)344-00-51</p>
+      <div class="footer_content" id="contacts">
+        <h4 class="footer-author">Anton Antleeõn</h4>
+        <p class="footer-line">
+          <a class="footer-link" href = "https://t.me/antleeon" target="_blank">Telegram</a>
+        </p>
+        <p class="footer-line">
+          <a class="footer-link" href = "https://www.instagram.com/antleeon/" target="_blank">Instagram</a>
+        </p>
+        <p class="footer-line">
+          <a class="footer-link" href = "mailto:antipenkoanton21@gmail.com" target="_blank">antipenkoanton21@gmail.com</a>
+        </p>
+        <p class="footer-line">8(985)344-00-51</p>
+      </div>
     </footer>
-    <script src="script.js"></script
-  </body>>
+    <script src="js/script.js"></script>
+  </body>
 </html>
 
   
