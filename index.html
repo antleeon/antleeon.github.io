@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Personal page</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="icon" type="image" href="img/icon.ico" />
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="wrapper
+                        wrapper_full-width">
+                <div class="header-wrapper">
+                    <div class="logo">
+                        <img class="logo__image" src="img/logo.png" alt="logo" />
+                    </div>
+                    <nav class="navigation-menu">
+                        <ul class="navigation-menu__list">
+                            <li class="navigation-menu__item">
+                                <a class="navigation-menu__link" href="/">Home</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a class="navigation-menu__link" href="#gallery">Gallery</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a class="navigation-menu__link" href="#feedback">Feedback</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a class="navigation-menu__link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="about" id="bio">
+                <div class="wrapper">
+                    <div class="about__content">
+                        <div class="text-wrapper">
+                            <h1 class="about__heading">Hi, I'm Anton.</h1>
+                            <p class="about__text">...insert bio here...</p>
+                            <span class="about__timer">0:00:00:00</span>
+                        </div>
+                        <img class="about__image" src="img/profile.png" alt="profile picture" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="content" id="cards">
+                <div class="wrapper">
+                    <div class="cards-wrapper">
+                        <div class="content-card" id="music">
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Music</h3>
+                                <p class="content-card__text">One of my major hobbies is music and everything related to it. I listen to it almost all the time while doing something, and in my free time I like playing guitar and sometimes record it. I also have a growing collection of gear and instruments — several guitars, which I like to modify and customize.</p>
+                            </div>
+                            <img class="content-card__image" src="img/guitar.png" alt="my guitar" />
+                        </div>
+
+                        <div class="content-card
+                                    content-card_right" id="miniatures">
+                            <img class="content-card__image" src="img/mini.png" alt="my miniature" />
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Miniatures</h3>
+                                <p class="content-card__text">Another big hobby of mine is tabletop wargaming and especially its collecting aspect. I like building, converting (sometimes sculpting) and painting miniatures, partially due to collection building and also because I feel for me it's a fine line between art and craftsmanship which lets me truelly relax.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-card
+                                    content-card_centric" id="gallery">
+                            <h3 class="content-card__title">Photo gallery</h3>
+                            <div class="gallery-view">
+                                <img class="content-card__image
+                                            content-card__image_gallery" onclick="openNthGalleryImage(1)" src="img/scene1.png" alt="gallery picture #1" />
+                                <img class="content-card__image
+                                            content-card__image_gallery" onclick="openNthGalleryImage(2)" src="img/scene2.png" alt="gallery picture #2" />
+                                <img class="content-card__image
+                                            content-card__image_gallery" onclick="openNthGalleryImage(3)" src="img/scene3.png" alt="gallery picture #3" />
+                            </div>
+                        </div>
+
+                        <div class="content-card" id="coffee">
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Coffee</h3>
+                                <p class="content-card__text">One of my relatively new interests is coffee — although I've been drinking it quiet often for a long time now, it's only become a true passion of mine a couple of years ago, when I decided to dive deeper into the subject. I can't say I'm already a big specialist on the theme, but I've definitely discovered a lot of details and improved my skills in brewing and better developed understanding of nuances in taste.</p>
+                            </div>
+                            <img class="content-card__image" src="img/coffee.png" alt="coffee serving" />
+                        </div>
+
+                        <div class="content-card
+                                    content-card_right" id="photography">
+                            <img class="content-card__image" src="img/sunrise.png" alt="one of my photos" />
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Photography</h3>
+                                <p class="content-card__text">I've never taken any classes on photograghy or photo editing, but I always liked drawing and had even finished an art school, and I feel like this is a relatively close area (somewhat simiular in many ways) which I can explore by myself and maybe get better in it with time.</p>
+                            </div>
+                        </div>
+                    
+                        <div class="content-card
+                                    content-card_clickable" onclick="openFeedbackForm()" id="feedback">
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Feedback form</h3>
+                                <p class="content-card__text">You can write your feedback, comments & critiques here.</p>
+                            </div>
+                            <form class="feedback-form">
+                                <!--feedback form here-->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="floating" id="floating">
+                <div class="wrapper
+                            wrapper_full-width
+                            wrapper_floating">
+                    <div class="floating-button-wrapper lower right">
+                        <div class="opening-menu">
+                            <nav class="navigation-menu
+                                        navigation-menu_hidden">
+                                <ul class="navigation-menu__list">
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="/">Home</a>
+                                    </li>
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#gallery">Gallery</a>
+                                    </li>
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#feedback">Feedback</a>
+                                    </li>
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#contact">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="button-wrapper">
+                                <button class="click-button" id="open-menu-button">
+                                    <svg class="hamburger-menu-icon" viewBox="0 0 10 10" stroke="whitesmoke" stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+                                        <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
+                                            <animate dur="0.2s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="start.begin" />
+                                            <animate dur="0.2s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="reverse.begin" />
+                                        </path>
+                                        <rect width="10" height="10" stroke="none">
+                                            <animate dur="2s" id="reverse" attributeName="width" begin="click" />
+                                        </rect>
+                                        <rect width="10" height="10" stroke="none">
+                                            <animate dur="0.001s" id="start" attributeName="width" values="10;0" fill="freeze" begin="click" />
+                                            <animate dur="0.001s" attributeName="width" values="0;10" fill="freeze" begin="reverse.begin" />
+                                        </rect>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="modals" id="modals">
+                <div class="wrapper
+                            wrapper_full-width
+                            wrapper_floating">
+                    <div class="modal-wrapper" role="dialog">
+                        <div class="modal-content" id="feedback-modal">
+                            <div class="content-card">
+                                <div class="text-wrapper">
+                                    <h3 class="content-card__title">Feedback form</h3>
+                                    <p class="content-card__text">You can write your feedback, comments & critiques here.</p>
+                                </div>
+                                <form class="feedback-form">
+                                    <!--feedback form here-->
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="modal-content" id="gallery-modal">
+                            <!--image gallery-->
+                            <div class="floating-button-wrapper left">
+                                <button class="click-button
+                                               click-button_no-background" onclick="modalGalleryPreviousImage()" id="previous-modal-button">
+                                    <svg class="left-arrow-icon" viewBox="0 0 10 10" stroke="inherit" stroke-width=".7" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+                                        <path d="M6,2L3,5L6,8"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="floating-button-wrapper right">
+                                <button class="click-button
+                                               click-button_no-background" onclick="modalGalleryNextImage()" id="next-modal-button">
+                                    <svg class="right-arrow-icon" viewBox="0 0 10 10" stroke="inherit" stroke-width=".7" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+                                        <path d="M4,2L7,5L4,8"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="floating-button-wrapper upper right">
+                            <div class="button-wrapper">
+                                <button class="click-button
+                                               click-button_no-background" onclick="closeModal()" id="close-modal-button">
+                                    <svg class="close-icon" viewBox="0 0 10 10" stroke="inherit" stroke-width=".7" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+                                        <path d="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="wrapper
+                        wrapper_full-width">
+                <div class="footer__content">
+                    <h3 class="footer__heading">by Anton Antleeõn</h3>
+                    <nav class="contacts-menu" id="contact">
+                        <ul class="contacts-menu__list">
+                            <li class="contacts-menu__item">
+                                <a class="contacts-menu__link" href="https://t.me/antleeon" target="_blank">Telegram</a>
+                            </li>
+                            <li class="contacts-menu__item">
+                                <a class="contacts-menu__link" href="https://www.instagram.com/antleeon" target="_blank">Instagram</a>
+                            </li>
+                            <li class="contacts-menu__item">
+                                <a class="contacts-menu__link" href="https://www.youtube.com/@antleeon" target="_blank">YouTube</a>
+                            </li>
+                            <li class="contacts-menu__item">
+                                antipenkoanton21@gmail.com
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+        <noscript>
+            <!--модалку с сообщением о включении js-->
+        </noscript>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
