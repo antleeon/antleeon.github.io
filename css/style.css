@@ -115,7 +115,7 @@ body {
     gap: 20px;
     justify-content: space-between;
     padding: 0 10px;
-    color: inherit;
+    color: whitesmoke;
 }
 
 .about {
@@ -188,11 +188,15 @@ body {
     text-align: right;
 }
 
-.content-card_clickable:hover {
-    cursor: pointer;
+.content-card_clickable-title:hover {
     outline: solid;
     outline-width: 3px;
     outline-color: #6a29d3;
+    color: #6a29d3;
+}
+
+.content-card_clickable-title:hover .content-card__title:hover {
+    cursor: pointer;
     color: #6a29d3;
 }
 
@@ -219,7 +223,7 @@ body {
     font-size: 40px;
     font-weight: 500;
     line-height: 40px;
-    color: inherit;
+    color: whitesmoke;
 }
 
 .content-card__text {

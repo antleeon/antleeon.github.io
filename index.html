@@ -101,13 +101,24 @@
                         </div>
                     
                         <div class="content-card
-                                    content-card_clickable" onclick="openFeedbackForm()" id="feedback">
+                                    content-card_clickable-title" id="feedback">
                             <div class="text-wrapper">
-                                <h3 class="content-card__title">Feedback form</h3>
+                                <h3 class="content-card__title" onclick="openFeedbackForm()">Feedback form</h3>
                                 <p class="content-card__text">You can write your feedback, comments & critiques here.</p>
                             </div>
                             <form class="feedback-form">
-                                <!--feedback form here-->
+                                <div class="text-wrapper">
+                                    <label class="feedback-form__label" for="user-name">Name</label>
+                                    <input class="feedback-form__input" type="text" id="feedback-user-name" name="user-name" required>
+                    
+                                    <label class="feedback-form__label" for="user-email">Email</label>
+                                    <input class="feedback-form__input" type="email" id="feedback-user-email" name="user-email" required>
+                    
+                                    <label class="feedback-form__label" for="feedback-message">Your feedback</label>
+                                    <textarea class="feedback-form__input" id="feedback-message" name="feedback-message" rows="4" cols="10" required></textarea>
+                                
+                                    <button class="feedback-form__button" type="submit">Submit</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -164,7 +175,20 @@
                                     <p class="content-card__text">You can write your feedback, comments & critiques here.</p>
                                 </div>
                                 <form class="feedback-form">
-                                    <!--feedback form here-->
+                                    <form class="feedback-form">
+                                        <div class="text-wrapper">
+                                            <label class="feedback-form__label" for="user-name">Name</label>
+                                            <input class="feedback-form__input" type="text" id="modal-feedback-user-name" name="user-name" required>
+                            
+                                            <label class="feedback-form__label" for="user-email">Email</label>
+                                            <input class="feedback-form__input" type="email" id="modal-feedback-user-email" name="user-email" required>
+                            
+                                            <label class="feedback-form__label" for="feedback-message">Your feedback</label>
+                                            <textarea class="feedback-form__input" id="modal-feedback-message" name="feedback-message" rows="4" cols="10" required></textarea>
+                                        
+                                            <button class="feedback-form__button" type="submit">Submit</button>
+                                        </div>
+                                    </form>
                                 </form>
                             </div>
                         </div>
