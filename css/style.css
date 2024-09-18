@@ -275,6 +275,13 @@ body {
     resize: none;
 }
 
+.feedback-form__input:focus {
+    outline-color: #6a29d3;
+    outline-offset: 0;
+    outline-width: 2px;
+    outline-style: solid;
+}
+
 .feedback-form__button {
     background-color: rgb(65,45,100);
     color: whitesmoke;
@@ -469,4 +476,8 @@ body {
 
 .left {
     left: 120px;
+}
+
+.hidden {
+    display: none;
 }
