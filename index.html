@@ -262,7 +262,20 @@
         </footer>
 
         <noscript>
-            <!--модалку с сообщением о включении js-->
+            <!-- TODO: move the card to the top -->
+            <div class="wrapper
+                        wrapper_full-width
+                        wrapper_floating">
+                <div class="modal-wrapper" style="display: flex;" role="dialog">
+                    <div class="modal-content" style="display: flex;">
+                        <div class="content-card
+                                    content-card_centric">
+                            <h3 class="content-card__title">Please, enable JavaScript</h3>
+                            <p class="content-card__text">For the page to work correctly, please enable JavaScript in your browser settings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </noscript>
         <script src="js/scripts.js"></script>
     </body>
