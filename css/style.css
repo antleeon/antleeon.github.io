@@ -112,10 +112,15 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px 20px;
     justify-content: space-between;
     padding: 0 10px;
     color: whitesmoke;
+}
+
+.text-wrapper_wide {
+    width: 100%;
+    padding: 0;
 }
 
 .about {
@@ -177,6 +182,7 @@ body {
     display: flex;
     gap: 40px;
     box-shadow: 3px 4px 4px rgba(0,0,0,.15);
+    justify-content: space-between;
 }
 
 .content-card_centric {
@@ -240,6 +246,50 @@ body {
     justify-content: space-between;
     padding: 0;
     gap: 30px;
+}
+
+.feedback-form {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
+    text-align: left;
+    color: whitesmoke;
+    width: 45%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 25px;
+}
+
+.feedback-form__input {
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 25px;
+    text-align: left;
+    color: lightgray;
+    background-color: #131018;
+    border-style: none;
+    border-radius: 10px;
+    padding: 15px;
+    resize: none;
+}
+
+.feedback-form__button {
+    background-color: rgb(65,45,100);
+    color: whitesmoke;
+    border-style: none;
+    border-radius: 10px;
+    padding: 17px 30px;
+    width: fit-content;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+}
+
+.feedback-form__button:hover {
+    cursor: pointer;
 }
 
 /* floating */
@@ -331,6 +381,12 @@ body {
     justify-content: center;
     width: fit-content;
     height: fit-content;
+}
+
+.content-card_modal {
+    width: 1700px;
+    max-width: 85%;
+    margin: 0;
 }
 
 .modal-content__image {
