@@ -58,12 +58,12 @@
                                 <h3 class="content-card__title">Music</h3>
                                 <p class="content-card__text">One of my major hobbies is music and everything related to it. I listen to it almost all the time while doing something, and in my free time I like playing guitar and sometimes record it. I also have a growing collection of gear and instruments — several guitars, which I like to modify and customize.</p>
                             </div>
-                            <img class="content-card__image" src="img/guitar.png" alt="my guitar" />
+                            <img class="content-card__image" src="img/guitar.png" onclick="openModalImageView('img/guitar.png', 'my guitar')" alt="my guitar" />
                         </div>
 
                         <div class="content-card
                                     content-card_right" id="miniatures">
-                            <img class="content-card__image" src="img/mini.png" alt="my miniature" />
+                            <img class="content-card__image" src="img/mini.png" onclick="openModalImageView('img/mini.png', 'my miniature')" alt="my miniature" />
                             <div class="text-wrapper">
                                 <h3 class="content-card__title">Miniatures</h3>
                                 <p class="content-card__text">Another big hobby of mine is tabletop wargaming and especially its collecting aspect. I like building, converting (sometimes sculpting) and painting miniatures, partially due to collection building and also because I feel for me it's a fine line between art and craftsmanship which lets me truelly relax.</p>
@@ -97,12 +97,12 @@
                                 <h3 class="content-card__title">Coffee</h3>
                                 <p class="content-card__text">One of my relatively new interests is coffee — although I've been drinking it quiet often for a long time now, it's only become a true passion of mine a couple of years ago, when I decided to dive deeper into the subject. I can't say I'm already a big specialist on the theme, but I've definitely discovered a lot of details and improved my skills in brewing and better developed understanding of nuances in taste.</p>
                             </div>
-                            <img class="content-card__image" src="img/coffee.png" alt="coffee serving" />
+                            <img class="content-card__image" src="img/coffee.png" onclick="openModalImageView('img/coffee.png', 'coffee serving')" alt="coffee serving" />
                         </div>
 
                         <div class="content-card
                                     content-card_right" id="photography">
-                            <img class="content-card__image" src="img/sunrise.png" alt="one of my photos" />
+                            <img class="content-card__image" src="img/sunrise.png" onclick="openModalImageView('img/sunrise.png', 'one of my photos')" alt="one of my photos" />
                             <div class="text-wrapper">
                                 <h3 class="content-card__title">Photography</h3>
                                 <p class="content-card__text">I've never taken any classes on photograghy or photo editing, but I always liked drawing and had even finished an art school, and I feel like this is a relatively close area (somewhat simiular in many ways) which I can explore by myself and maybe get better in it with time.</p>
@@ -119,13 +119,13 @@
                                 <div class="text-wrapper
                                             text-wrapper_wide">
                                     <label class="feedback-form__label" for="user-name">Name</label>
-                                    <input class="feedback-form__input" type="text" id="feedback-user-name" name="user-name" required>
+                                    <input class="feedback-form__input" type="text" id="feedback-user-name" name="user-name" placeholder="John Smith" required>
                     
                                     <label class="feedback-form__label" for="user-email">Email</label>
-                                    <input class="feedback-form__input" type="email" id="feedback-user-email" name="user-email" required>
+                                    <input class="feedback-form__input" type="email" id="feedback-user-email" name="user-email" placeholder="johnsmith@gmail.com" required>
                     
                                     <label class="feedback-form__label" for="feedback-message">Your feedback</label>
-                                    <textarea class="feedback-form__input" id="feedback-message" name="feedback-message" rows="6" required></textarea>
+                                    <textarea class="feedback-form__input" id="feedback-message" name="feedback-message" rows="6" placeholder="write something..." required></textarea>
                                 </div>
                                 <button class="feedback-form__button" type="submit">Submit</button>
                             </form>
@@ -188,17 +188,21 @@
                                     <div class="text-wrapper
                                                 text-wrapper_wide">
                                         <label class="feedback-form__label" for="user-name">Name</label>
-                                        <input class="feedback-form__input" type="text" id="modal-feedback-user-name" name="user-name" required>
+                                        <input class="feedback-form__input" type="text" id="modal-feedback-user-name" name="user-name" placeholder="John Smith" required>
                         
                                         <label class="feedback-form__label" for="user-email">Email</label>
-                                        <input class="feedback-form__input" type="email" id="modal-feedback-user-email" name="user-email" required>
+                                        <input class="feedback-form__input" type="email" id="modal-feedback-user-email" name="user-email" placeholder="johnsmith@gmail.com" required>
                         
                                         <label class="feedback-form__label" for="feedback-message">Your feedback</label>
-                                        <textarea class="feedback-form__input" id="modal-feedback-message" name="feedback-message" rows="6" required></textarea>
+                                        <textarea class="feedback-form__input" id="modal-feedback-message" name="feedback-message" rows="6" placeholder="write something..." required></textarea>
                                     </div>
                                     <button class="feedback-form__button" type="submit">Submit</button>
                                 </form>
                             </div>
+                        </div>
+
+                        <div class="modal-content" id="modal-image-view">
+                            <img class="modal-content__image" alt="singular image full screen modal view" />
                         </div>
 
                         <div class="modal-content" id="gallery-modal">

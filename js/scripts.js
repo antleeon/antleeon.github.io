@@ -114,3 +114,17 @@ function floatingMenuBarSwitch() {
                            open_menu_button.querySelector('.reverse-animation'); // choosing the needed button animation
     active_animation.beginElement(); // activating animation
 }
+
+function setImageView(source, alternative) {
+    let modal_section = document.querySelector('#modals');
+    let modal_image_view = modal_section.querySelector('#modal-image-view'); // finding the modal image view
+    let modal_image = modal_image_view.querySelector('.modal-content__image'); // finding the image elememt
+
+    modal_image.src = source;
+    modal_image.alt = alternative;
+}
+
+function openModalImageView(source, alternative) {
+    setImageView(source, alternative); // changing the displayed image to the required
+    displayModalContent('modal-image-view'); // opening the modal image view
+}
