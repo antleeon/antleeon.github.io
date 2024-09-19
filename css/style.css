@@ -396,6 +396,7 @@ body {
     justify-content: center;
     width: fit-content;
     height: fit-content;
+    padding: 20px;
 }
 
 .content-card_modal {
