@@ -11,7 +11,12 @@ function hideAllModalContent() {
 function setModalSectionVisibility(visible) {
     let modal_section = document.querySelector('#modals');
     let modal_wrapper = modal_section.querySelector('.modal-wrapper');
-    modal_wrapper.style.display = visible ? 'flex' : 'none';
+    modal_wrapper.style.display = visible ? 'flex' : 'none'; // setting display visibility
+
+    let body_tag = document.querySelector('body');
+    body_tag.style.overflow = visible ? 'hidden' : 'auto';
+    modal_section.style.overflow = visible ? 'auto' : 'hidden'; // setting scroll behavior
+    body_tag.style['padding-right'] = visible ? '15px' : '0'; // setting the padding accordingly
 }
 
 function closeModal() {
