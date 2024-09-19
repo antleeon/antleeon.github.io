@@ -17,6 +17,7 @@ function setModalSectionVisibility(visible) {
     body_tag.style.overflow = visible ? 'hidden' : 'auto';
     modal_section.style.overflow = visible ? 'auto' : 'hidden'; // setting scroll behavior
     body_tag.style['padding-right'] = visible ? '15px' : '0'; // setting the padding accordingly
+    // great code, i regret nothing
 }
 
 function closeModal() {

@@ -431,9 +431,10 @@ body {
 }
 
 .content-card_modal {
-    width: 1700px;
-    max-width: 85%;
+    width: 80vw;
+    max-width: 1700px;
     margin: 0;
+    overflow: auto;
 }
 
 .modal-content__image {
