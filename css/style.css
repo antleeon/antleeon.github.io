@@ -126,6 +126,10 @@ body {
     background-color: color-mix(in srgb, rgb(65,45,100) 30%, rgb(19,16,24) 70%);;
 }
 
+::-webkit-scrollbar-corner {
+    background-color: rgba(0,0,0,0);
+}
+
 /* main content */
 
 .main {
@@ -224,18 +228,6 @@ body {
     text-align: right;
 }
 
-.content-card_clickable-title:hover {
-    outline: solid;
-    outline-width: 3px;
-    outline-color: #6a29d3;
-    color: #6a29d3;
-}
-
-.content-card_clickable-title:hover .content-card__title:hover {
-    cursor: pointer;
-    color: #6a29d3;
-}
-
 .content-card__image {
     max-height: 400px;
     height: fit-content;
@@ -260,6 +252,11 @@ body {
     font-weight: 500;
     line-height: 40px;
     color: whitesmoke;
+}
+
+.content-card__title_clickable:hover {
+    cursor: pointer;
+    color: #6a29d3;
 }
 
 .content-card__text {
