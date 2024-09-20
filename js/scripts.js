@@ -181,4 +181,30 @@ const main_feedback_form = document.querySelector('#feedback-form');
 const modal_feedback_form = document.querySelector('#modal-feedback-form');
 
 main_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(true); });
-modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(false); }); // transfering the input text from one form to another automaticly
+modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(false); }); // transfering the input text from one form to another automaticaly
+
+(function() {
+    const countdown_date_time = new Date("Jun 1, 2027 00:00:00").getTime();
+    const countdown_interval = 1000;
+
+    const cards_section = document.querySelector('#cards');
+    const timer_card = cards_section.querySelector('#education');
+    const timer_element = timer_card.querySelector('#countdown-timer');
+
+    let x = setInterval(function() {
+        const current_date_time = new Date().getTime();
+        const time_distance = countdown_date_time - current_date_time;
+
+        const remaining_days = Math.floor(time_distance / (1000 * 60 * 60 * 24));
+        const remaining_hours = Math.floor((time_distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const remaining_minutes = Math.floor((time_distance % (1000 * 60 * 60)) / (1000 * 60));
+        const remaining_seconds = Math.floor((time_distance % (1000 * 60)) / 1000);
+
+        const current_timer_value = ((remaining_days >= 1) ? (remaining_days + ((remaining_days >= 2) ? ' days and ' : ' day and ')) : '') +
+                                    Math.floor(remaining_hours / 10) + Math.floor(remaining_hours % 10) + ':' +
+                                    Math.floor(remaining_minutes / 10) + Math.floor(remaining_minutes % 10) + ':' +
+                                    Math.floor(remaining_seconds / 10) + Math.floor(remaining_seconds % 10) + '.';
+
+        timer_element.innerHTML = (time_distance > 0) ? current_timer_value : '... seems like it already happened!';
+    }, countdown_interval);
+}()); // timer countdown script
