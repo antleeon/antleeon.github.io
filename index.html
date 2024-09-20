@@ -71,7 +71,8 @@
 
                         <div class="content-card
                                     content-card_centric" id="gallery">
-                            <h3 class="content-card__title">Photo gallery</h3>
+                            <h3 class="content-card__title
+                                       content-card__title_clickable" onclick="openLatestGalleryImage()">Photo gallery</h3>
                             <div class="gallery-view">
                                 <img class="content-card__image
                                             content-card__image_gallery" onclick="openNthGalleryImage(1)" src="img/scene1.png" alt="gallery picture #1" />
@@ -219,7 +220,7 @@
                         </div>
 
                         <div class="modal-content" id="gallery-modal">
-                            <img class="modal-content__image" alt="0" />
+                            <img class="modal-content__image" alt="displayed modal gallery image" name="0" />
                             <div class="floating-button-wrapper left">
                                 <button class="click-button
                                                click-button_no-background" onclick="modalGalleryPreviousImage()" id="previous-modal-button">

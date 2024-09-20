@@ -73,6 +73,16 @@ function openNthGalleryImage(n) {
     displayModalContent('gallery-modal'); // opening the modal gallery
 }
 
+function openLatestGalleryImage() {
+    let modal_section = document.querySelector('#modals');
+    let modal_gallery = modal_section.querySelector('#gallery-modal');
+    let modal_gallery_image = modal_gallery.querySelector('.modal-content__image'); // finding the modal gallery image elememt
+
+    let latest_image_number = modal_gallery_image.name;
+    latest_image_number = (Number(latest_image_number) > 0) ? Number(latest_image_number) : 1;
+    openNthGalleryImage(latest_image_number); // opening the latest displayed image or the first if none was
+}
+
 function switchModalGalleryImage(shift) {
     let modal_section = document.querySelector('#modals');
     let modal_gallery = modal_section.querySelector('#gallery-modal'); // finding the modal gallery
