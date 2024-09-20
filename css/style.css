@@ -152,6 +152,14 @@ body {
     color: whitesmoke;
 }
 
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    justify-content: space-around;
+}
+
 .text-wrapper_wide {
     width: 100%;
     padding: 0;
@@ -259,6 +267,13 @@ body {
     color: #6a29d3;
 }
 
+.content-card__subtitle {
+    font-size: 25px;
+    font-weight: 300;
+    line-height: 25px;
+    color: whitesmoke;
+}
+
 .content-card__text {
     font-size: 22px;
     font-weight: 300;
@@ -302,6 +317,7 @@ body {
     padding: 15px;
     resize: none;
     overflow: auto;
+    box-shadow: inset 0 0 3px rgba(0,0,0,.2);
 }
 
 .feedback-form__input:focus {
