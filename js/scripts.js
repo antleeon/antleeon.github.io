@@ -61,7 +61,8 @@ function setNthGalleryImage(n) {
     let modal_gallery_image = modal_gallery.querySelector('.modal-content__image'); // finding the modal gallery image elememt
 
     modal_gallery_image.src = gallery_images[n - 1].src; // setting the needed image as a source for the displayed image of the modal gallery
-    modal_gallery_image.alt = String(n); // saving the currently displayed image nimber
+    modal_gallery_image.alt = gallery_images[n - 1].alt; // setting the description accordingly
+    modal_gallery_image.name = String(n); // saving the currently displayed image nimber
     
     setModalGalleryPreviousButtonVisibility((n > 1) ? true : false); // showing/hiding gallery navigation buttons accordingly to the image number
     setModalGalleryNextButtonVisibility((n < gallery_images.length) ? true : false);
@@ -77,7 +78,7 @@ function switchModalGalleryImage(shift) {
     let modal_gallery = modal_section.querySelector('#gallery-modal'); // finding the modal gallery
     let modal_gallery_image = modal_gallery.querySelector('.modal-content__image'); // finding the modal gallery image elememt
 
-    let current_image_number = Number(modal_gallery_image.alt); // finding the currently displayed image number
+    let current_image_number = Number(modal_gallery_image.name); // finding the currently displayed image number
     let new_image_number = current_image_number + shift; // counting the newly displayed image number
 
     setNthGalleryImage(new_image_number); // changing the displayed image to the needed
@@ -134,3 +135,40 @@ function openModalImageView(source, alternative) {
     setImageView(source, alternative); // changing the displayed image to the required
     displayModalContent('modal-image-view'); // opening the modal image view
 }
+
+function transferFeedbackFormInputs(to_modal) {
+    let cards_section = document.querySelector('#cards');
+    let feedback_card = cards_section.querySelector('#feedback');
+    let main_feedback_form = feedback_card.querySelector('#feedback-form'); // finding the body content card feedback form
+
+    let modal_section = document.querySelector('#modals');
+    let modal_feedback = modal_section.querySelector('#feedback-modal');
+    let modal_feedback_form = modal_feedback.querySelector('#modal-feedback-form'); // finding the modal feedback form
+
+    let main_form_inputs = main_feedback_form.querySelectorAll('.feedback-form__input');
+    let modal_form_inputs = modal_feedback_form.querySelectorAll('.feedback-form__input'); // finding all inputs fro both forms
+
+    let form_from = to_modal ? main_form_inputs : modal_form_inputs;
+    let form_to = to_modal ? modal_form_inputs : main_form_inputs; // defining the source and target sets of inputs
+    
+    let target_input_index = -1;
+    const target_inputs_quan = form_to.length;
+    for (const input_from of form_from) { // transfering input values according to input names
+        const input_name = input_from.name;
+        for (let i = 0; i < target_inputs_quan; ++i) {
+            ++target_input_index;
+            target_input_index %= target_inputs_quan;
+            let input_to = form_to[target_input_index];
+            if (input_to.name == input_name) {
+                input_to.value = input_from.value;
+                break;
+            }
+        }
+    }
+}
+
+const main_feedback_form = document.querySelector('#feedback-form');
+const modal_feedback_form = document.querySelector('#modal-feedback-form');
+
+main_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(true); });
+modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(false); }); // transfering the input text from one form to another automaticly
