@@ -1,92 +1,299 @@
-<!DOCTYPE html> 
-<html> 
-  <head> 
-    <meta charset="utf-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antleeõn personal page</title> 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image" href="img/icon.ico">
-  </head> 
-  <body>
-    <header class="header">
-      <div class="header_block">
-        <a class="header_title" href="/">
-          <img class="logo" src="img/logo.png" alt="Logo">
-          <h1>My personal page</h1>
-        </a>
-        <nav class="menu">
-          <a href="#main">Home</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contacts">Contact</a>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <section class="content" id="main">
-        <div class="card">
-          <div class="card_text">
-            <h2 class="card_title">My name is Anton Antipenko,</h2>
-            <p class="card_line">I'm a first year student at HSSE MIPT. I love coding, and in my free time I listen to music, also I like painting and playing board games.</p>
-            <p class="card_line">I'm (hopefully) getting a bachelor's degree in:</p>
-            <p class="card_line" id="countdowntimer">countdown</p>
-          </div>
-          <img class="my-picture-image" src="img/my_picture.jpg">
-        </div>
-      </section>
-      <section class="content" id="gallery">
-        <div class="card">
-          <div class="gallery">
-            <img class="gallery_image" onclick="openNthSlide(1)" src="img/img_houses.jpg" alt="Houses">
-            <img class="gallery_image" onclick="openNthSlide(2)" src="img/img_castle.jpg" alt="Castle">
-            <img class="gallery_image" onclick="openNthSlide(3)" src="img/img_ships.jpg" alt="Ships">
-          </div>
-        </div>
-      </section>
-      <section class="overlay">
-        <button class="feedback-button" src="img/message.svg" onclick="openFeedbackForm()"></button>
-      </section>
-      <section class="modal">
-        <div class="modal_feedback-form">
-          <button class="close-button" onclick="closeForm()">&times;</button>
-          <div class="popup-card">
-            <form class="feedback-form" id="feedback" enctype="text/plain" method="POST">
-              <label class="form-label" for="fname">First name</label>
-              <input class="form-input" type="text" id="fname" placeholder="your name">
-              <label class="form-label" for="lname">Last name</label>
-              <input class="form-input" type="text" id="lname" placeholder="your last name">
-              <label class="form-label" for="mail">E-mail</label>
-              <input class="form-input" type="email" id="mail" placeholder="your e-mail" required>
-              <label class="form-label" for="subject">Subject</label>
-              <textarea class="form-field" id="subject" placeholder="your feedback here" required></textarea>
-              <input class="form-submit" type="submit" id="fsubmit" value="Submit">
-            </form>
-          </div>
-        </div>
-        <div class="modal_slideshow">
-          <button class="close-button" onclick="closeSlides()">&times;</button>
-          <button class="prev-button" onclick="plusSlides(-1)">&#10094;</button>
-          <button class="next-button" onclick="plusSlides(1)">&#10095;</button>
-          <img class="modal_image">
-        </div>
-      </section>
-    </main>
-    <footer class="footer">
-      <div class="footer_content" id="contacts">
-        <h4 class="footer-author">Anton Antleeõn</h4>
-        <p class="footer-line">
-          <a class="footer-link" href = "https://t.me/antleeon" target="_blank">Telegram</a>
-        </p>
-        <p class="footer-line">
-          <a class="footer-link" href = "https://www.instagram.com/antleeon/" target="_blank">Instagram</a>
-        </p>
-        <p class="footer-line">
-          <a class="footer-link" href = "mailto:antipenkoanton21@gmail.com" target="_blank">antipenkoanton21@gmail.com</a>
-        </p>
-        <p class="footer-line">8(985)344-00-51</p>
-      </div>
-    </footer>
-    <script src="js/script.js"></script>
-  </body>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Personal page</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="icon" type="image" href="img/icon.ico" />
+    </head>
 
-  
+    <body>
+        <header class="header">
+            <div class="wrapper
+                        wrapper_full-width">
+                <div class="header-wrapper">
+                    <div class="logo">
+                        <img class="logo__image" src="img/logo.png" alt="logo" />
+                    </div>
+                    <nav class="navigation-menu">
+                        <ul class="navigation-menu__list">
+                            <li class="navigation-menu__item">
+                                <a class="navigation-menu__link" href="/">Home</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a class="navigation-menu__link" href="#gallery">Gallery</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a class="navigation-menu__link" href="#feedback">Feedback</a>
+                            </li>
+                            <li class="navigation-menu__item">
+                                <a class="navigation-menu__link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="about" id="bio">
+                <div class="wrapper">
+                    <div class="about__content">
+                        <div class="text-wrapper">
+                            <h1 class="about__heading">Hi, I'm Anton.</h1>
+                            <p class="about__text">I am second-year student at MIPT HSSE and currently studying to become a software engineer, though I admit my future job may be only partially related (or even completely unrelated) to it, as I have some other hobbies and would love to be able to combine different fields of my interest in my hypothetical work, and maybe dedicate it to something more art-related, as game development for example.</p>
+                        </div>
+                        <img class="about__image" src="img/profile.png" alt="profile picture" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="content" id="cards">
+                <div class="wrapper">
+                    <div class="cards-wrapper">
+                        <div class="content-card" id="music">
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Music</h3>
+                                <p class="content-card__text">One of my major hobbies is music and everything related to it. I listen to it almost all the time while doing something, and in my free time I like playing guitar and sometimes record it. I also have a growing collection of gear and instruments — several guitars, which I like to modify and customize.</p>
+                            </div>
+                            <img class="content-card__image" src="img/guitar.png" onclick="openModalImageView('img/guitar.png', 'my guitar')" alt="my guitar" />
+                        </div>
+
+                        <div class="content-card
+                                    content-card_right" id="miniatures">
+                            <img class="content-card__image" src="img/mini.png" onclick="openModalImageView('img/mini.png', 'my miniature')" alt="my miniature" />
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Miniatures</h3>
+                                <p class="content-card__text">Another big hobby of mine is tabletop wargaming and especially its collecting aspect. I like building, converting (sometimes sculpting) and painting miniatures, partially due to collection building and also because I feel for me it's a fine line between art and craftsmanship which lets me truelly relax.</p>
+                            </div>
+                        </div>
+
+                        <div class="content-card
+                                    content-card_centric" id="gallery">
+                            <h3 class="content-card__title
+                                       content-card__title_clickable" onclick="openLatestGalleryImage()">Photo gallery</h3>
+                            <div class="gallery-view">
+                                <img class="content-card__image
+                                            content-card__image_gallery" onclick="openNthGalleryImage(1)" src="img/scene1.png" alt="gallery picture #1" />
+                                <img class="content-card__image
+                                            content-card__image_gallery" onclick="openNthGalleryImage(2)" src="img/scene2.png" alt="gallery picture #2" />
+                                <img class="content-card__image
+                                            content-card__image_gallery" onclick="openNthGalleryImage(3)" src="img/scene5.png" alt="gallery picture #3" />
+                                <img class="content-card__image
+                                            content-card__image_gallery hidden" src="img/scene4.png" alt="gallery picture #4" />
+                                <img class="content-card__image
+                                            content-card__image_gallery hidden" src="img/scene3.png" alt="gallery picture #5" />
+                                <img class="content-card__image
+                                            content-card__image_gallery hidden" src="img/scene6.png" alt="gallery picture #6" />
+                                <img class="content-card__image
+                                            content-card__image_gallery hidden" src="img/scene7.png" alt="gallery picture #7" />
+                                
+                            </div>
+                        </div>
+
+                        <div class="content-card" id="coffee">
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Coffee</h3>
+                                <p class="content-card__text">One of my relatively new interests is coffee — although I've been drinking it quiet often for a long time now, it's only become a true passion of mine a couple of years ago, when I decided to dive deeper into the subject. I can't say I'm already a big specialist on the theme, but I've definitely discovered a lot of details and improved my skills in brewing and better developed understanding of nuances in taste.</p>
+                            </div>
+                            <img class="content-card__image" src="img/coffee.png" onclick="openModalImageView('img/coffee.png', 'coffee serving')" alt="coffee serving" />
+                        </div>
+
+                        <div class="content-card
+                                    content-card_right" id="photography">
+                            <img class="content-card__image" src="img/sunrise.png" onclick="openModalImageView('img/sunrise.png', 'one of my photos')" alt="one of my photos" />
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Photography</h3>
+                                <p class="content-card__text">I've never taken any classes on photograghy or photo editing, but I always liked drawing and had even finished an art school, and I feel like this is a relatively close area (somewhat simiular in many ways) which I can explore by myself and maybe get better in it with time.</p>
+                            </div>
+                        </div>
+                    
+                        <div class="content-card" id="feedback">
+                            <div class="text-wrapper">
+                                <div class="title-wrapper">
+                                    <h3 class="content-card__title
+                                               content-card__title_clickable" onclick="openFeedbackForm()">Feedback form</h3>
+                                    <h4 class="content-card__subtitle">(click on the title to open fullscreen)</h4>
+                                </div>
+                                <p class="content-card__text">You can write your feedback, comments & critiques here.</p>
+                            </div>
+                            <form class="feedback-form" id="feedback-form">
+                                <div class="text-wrapper
+                                            text-wrapper_wide">
+                                    <label class="feedback-form__label" for="user-name">Name</label>
+                                    <input class="feedback-form__input" type="text" id="feedback-user-name" name="user-name" placeholder="John Smith" required>
+                    
+                                    <label class="feedback-form__label" for="user-email">Email</label>
+                                    <input class="feedback-form__input" type="email" id="feedback-user-email" name="user-email" placeholder="johnsmith@gmail.com" required>
+                    
+                                    <label class="feedback-form__label" for="feedback-message">Your feedback</label>
+                                    <textarea class="feedback-form__input" id="feedback-message" name="feedback-message" rows="6" placeholder="write something..." required></textarea>
+                                </div>
+                                <button class="feedback-form__button" type="submit">Submit</button>
+                            </form>
+                        </div>
+
+                        <div class="content-card" id="education">
+                            <div class="text-wrapper">
+                                <h3 class="content-card__title">Education</h3>
+                                <p class="content-card__text">I'm currently studying for a second year at Moscow Institute of Physics and Technology. I chose it mostly because of the particular department I'm studying at — High School of Software Engineering — which had the most modern and still developing curriculum among others, which I believe is rather important, especially in this field.\n I am (hopefully) graduating with a bachelor's degree in
+                                    <span class="content-card__text
+                                                 content-card__timer" id="countdown-timer">0:00:00:00.</span>
+                                </p>
+                            </div>
+                            <img class="content-card__image" src="img/campus.png" onclick="openModalImageView('img/campus.png', 'university campus')" alt="university campus" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="floating" id="floating">
+                <div class="wrapper
+                            wrapper_full-width
+                            wrapper_floating">
+                    <div class="floating-button-wrapper lower right">
+                        <div class="opening-menu">
+                            <nav class="navigation-menu
+                                        navigation-menu_hidden">
+                                <ul class="navigation-menu__list">
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="/">Home</a>
+                                    </li>
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#gallery">Gallery</a>
+                                    </li>
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#feedback">Feedback</a>
+                                    </li>
+                                    <li class="navigation-menu__item">
+                                        <a class="navigation-menu__link" href="#contact">Contact</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="button-wrapper">
+                                <button class="click-button" id="open-menu-button" onclick="floatingMenuBarSwitch()">
+                                    <svg class="hamburger-menu-icon" viewBox="0 0 10 10" stroke="whitesmoke" stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+                                        <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
+                                            <animate class="forward-animation" dur="0.5s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="indefinite" />
+                                            <animate class="reverse-animation" dur="0.5s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="indefinite" />
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="modals" id="modals">
+                <div class="wrapper
+                            wrapper_full-width
+                            wrapper_floating">
+                    <div class="modal-wrapper" role="dialog">
+                        <div class="modal-content" id="feedback-modal">
+                            <div class="content-card
+                                        content-card_modal">
+                                <div class="text-wrapper">
+                                    <h3 class="content-card__title">Feedback form</h3>
+                                    <p class="content-card__text">You can write your feedback, comments & critiques here.</p>
+                                </div>
+                                <form class="feedback-form" id="modal-feedback-form">
+                                    <div class="text-wrapper
+                                                text-wrapper_wide">
+                                        <label class="feedback-form__label" for="user-name">Name</label>
+                                        <input class="feedback-form__input" type="text" id="modal-feedback-user-name" name="user-name" placeholder="John Smith" required>
+                        
+                                        <label class="feedback-form__label" for="user-email">Email</label>
+                                        <input class="feedback-form__input" type="email" id="modal-feedback-user-email" name="user-email" placeholder="johnsmith@gmail.com" required>
+                        
+                                        <label class="feedback-form__label" for="feedback-message">Your feedback</label>
+                                        <textarea class="feedback-form__input" id="modal-feedback-message" name="feedback-message" rows="10" placeholder="write something..." required></textarea>
+                                    </div>
+                                    <button class="feedback-form__button" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="modal-content" id="modal-image-view">
+                            <img class="modal-content__image" alt="singular image full screen modal view" />
+                        </div>
+
+                        <div class="modal-content" id="gallery-modal">
+                            <img class="modal-content__image" alt="displayed modal gallery image" name="0" />
+                            <div class="floating-button-wrapper left">
+                                <button class="click-button
+                                               click-button_no-background" onclick="modalGalleryPreviousImage()" id="previous-modal-button">
+                                    <svg class="left-arrow-icon" viewBox="0 0 10 10" stroke="inherit" stroke-width=".7" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+                                        <path d="M6,2L3,5L6,8"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="floating-button-wrapper right">
+                                <button class="click-button
+                                               click-button_no-background" onclick="modalGalleryNextImage()" id="next-modal-button">
+                                    <svg class="right-arrow-icon" viewBox="0 0 10 10" stroke="inherit" stroke-width=".7" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+                                        <path d="M4,2L7,5L4,8"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="floating-button-wrapper upper right">
+                            <div class="button-wrapper">
+                                <button class="click-button
+                                               click-button_no-background" onclick="closeModal()" id="close-modal-button">
+                                    <svg class="close-icon" viewBox="0 0 10 10" stroke="inherit" stroke-width=".7" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
+                                        <path d="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="wrapper
+                        wrapper_full-width">
+                <div class="footer__content">
+                    <h3 class="footer__heading">by Anton Antleeõn</h3>
+                    <nav class="contacts-menu" id="contact">
+                        <ul class="contacts-menu__list">
+                            <li class="contacts-menu__item">
+                                <a class="contacts-menu__link" href="https://t.me/antleeon" target="_blank">Telegram</a>
+                            </li>
+                            <li class="contacts-menu__item">
+                                <a class="contacts-menu__link" href="https://www.instagram.com/antleeon" target="_blank">Instagram</a>
+                            </li>
+                            <li class="contacts-menu__item">
+                                <a class="contacts-menu__link" href="https://www.youtube.com/@antleeon" target="_blank">YouTube</a>
+                            </li>
+                            <li class="contacts-menu__item">
+                                antipenkoanton21@gmail.com
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </footer>
+
+        <noscript>
+            <div class="wrapper
+                        wrapper_full-width
+                        wrapper_floating">
+                <div class="modal-wrapper" style="display: flex; align-items: baseline;" role="dialog">
+                    <div class="modal-content" style="display: flex;">
+                        <div class="content-card
+                                    content-card_centric">
+                            <h3 class="content-card__title">Please, enable JavaScript</h3>
+                            <p class="content-card__text">For the page to work correctly, please enable JavaScript in your browser settings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </noscript>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
