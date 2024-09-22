@@ -177,11 +177,13 @@ function transferFeedbackFormInputs(to_modal) {
     }
 }
 
+(function() {
 const main_feedback_form = document.querySelector('#feedback-form');
 const modal_feedback_form = document.querySelector('#modal-feedback-form');
 
 main_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(true); });
-modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(false); }); // transfering the input text from one form to another automaticaly
+modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(false); });
+}()); // transfering the input text from one form to another automaticaly script
 
 (function() {
     const countdown_date_time = new Date("Jun 1, 2027 00:00:00").getTime();
