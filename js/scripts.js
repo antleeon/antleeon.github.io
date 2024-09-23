@@ -62,7 +62,7 @@ function setNthGalleryImage(n) {
 
     modal_gallery_image.src = gallery_images[n - 1].src; // setting the needed image as a source for the displayed image of the modal gallery
     modal_gallery_image.alt = gallery_images[n - 1].alt; // setting the description accordingly
-    modal_gallery_image.name = String(n); // saving the currently displayed image nimber
+    modal_gallery_image['data-slide-number'] = String(n); // saving the currently displayed image nimber
     
     setModalGalleryPreviousButtonVisibility((n > 1) ? true : false); // showing/hiding gallery navigation buttons accordingly to the image number
     setModalGalleryNextButtonVisibility((n < gallery_images.length) ? true : false);
@@ -78,7 +78,7 @@ function openLatestGalleryImage() {
     let modal_gallery = modal_section.querySelector('#gallery-modal');
     let modal_gallery_image = modal_gallery.querySelector('.modal-content__image'); // finding the modal gallery image elememt
 
-    let latest_image_number = modal_gallery_image.name;
+    let latest_image_number = modal_gallery_image['data-slide-number'];
     latest_image_number = (Number(latest_image_number) > 0) ? Number(latest_image_number) : 1;
     openNthGalleryImage(latest_image_number); // opening the latest displayed image or the first if none was
 }
@@ -88,7 +88,7 @@ function switchModalGalleryImage(shift) {
     let modal_gallery = modal_section.querySelector('#gallery-modal'); // finding the modal gallery
     let modal_gallery_image = modal_gallery.querySelector('.modal-content__image'); // finding the modal gallery image elememt
 
-    let current_image_number = Number(modal_gallery_image.name); // finding the currently displayed image number
+    let current_image_number = Number(modal_gallery_image['data-slide-number']); // finding the currently displayed image number
     let new_image_number = current_image_number + shift; // counting the newly displayed image number
 
     setNthGalleryImage(new_image_number); // changing the displayed image to the needed
@@ -126,9 +126,10 @@ function floatingMenuBarSwitch() {
     
     menu_list.style.width = switch_to_opened ? LIST_OPENED_WIDTH : LIST_CLOSED_WIDTH;
 
+    let button_animations = open_menu_button.querySelectorAll('animate');
     let active_animation = switch_to_opened ?
-                           open_menu_button.querySelector('.forward-animation') :
-                           open_menu_button.querySelector('.reverse-animation'); // choosing the needed button animation
+                           button_animations[0] :
+                           button_animations[1]; // choosing the needed button animation
     active_animation.beginElement(); // activating animation
 }
 
