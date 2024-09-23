@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head itemscope itemtype="https://schema.org/WebPage">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Personal page</title>
+        <title>Personal page | Anton Antleeõn</title>
+        <meta name="description" content="Welcome to my personal page, here you can get to know me better, contact me or eave your feedback" />
         <link rel="stylesheet" href="css/style.css" />
-        <link rel="icon" type="image" href="img/icon.ico" />
+        <link rel="icon" type="image/ico" href="img/icon.ico" />
         <!--twitter meta tags-->
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Anton Antleeõn — personal page" />
@@ -137,10 +138,10 @@
                             <form class="feedback-form" id="feedback-form">
                                 <div class="text-wrapper
                                             text-wrapper_wide">
-                                    <label class="feedback-form__label" for="user-name">Name</label>
+                                    <label class="feedback-form__label" for="feedback-user-name">Name</label>
                                     <input class="feedback-form__input" type="text" id="feedback-user-name" name="user-name" placeholder="John Smith" required>
                     
-                                    <label class="feedback-form__label" for="user-email">Email</label>
+                                    <label class="feedback-form__label" for="feedback-user-email">Email</label>
                                     <input class="feedback-form__input" type="email" id="feedback-user-email" name="user-email" placeholder="johnsmith@gmail.com" required>
                     
                                     <label class="feedback-form__label" for="feedback-message">Your feedback</label>
@@ -191,8 +192,8 @@
                                 <button class="click-button" id="open-menu-button" onclick="floatingMenuBarSwitch()">
                                     <svg class="hamburger-menu-icon" viewBox="0 0 10 10" stroke="whitesmoke" stroke-width=".6" fill="rgba(0,0,0,0)" stroke-linecap="round" style="cursor: pointer">
                                         <path d="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7">
-                                            <animate class="forward-animation" dur="0.5s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="indefinite" />
-                                            <animate class="reverse-animation" dur="0.5s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="indefinite" />
+                                            <animate dur="0.5s" attributeName="d" values="M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7;M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7" fill="freeze" begin="indefinite" />
+                                            <animate dur="0.5s" attributeName="d" values="M3,3L5,5L7,3M5,5L5,5M3,7L5,5L7,7;M2,3L5,3L8,3M2,5L8,5M2,7L5,7L8,7" fill="freeze" begin="indefinite" />
                                         </path>
                                     </svg>
                                 </button>
@@ -217,13 +218,13 @@
                                 <form class="feedback-form" id="modal-feedback-form">
                                     <div class="text-wrapper
                                                 text-wrapper_wide">
-                                        <label class="feedback-form__label" for="user-name">Name</label>
+                                        <label class="feedback-form__label" for="modal-feedback-user-name">Name</label>
                                         <input class="feedback-form__input" type="text" id="modal-feedback-user-name" name="user-name" placeholder="John Smith" required>
                         
-                                        <label class="feedback-form__label" for="user-email">Email</label>
+                                        <label class="feedback-form__label" for="modal-feedback-user-email">Email</label>
                                         <input class="feedback-form__input" type="email" id="modal-feedback-user-email" name="user-email" placeholder="johnsmith@gmail.com" required>
                         
-                                        <label class="feedback-form__label" for="feedback-message">Your feedback</label>
+                                        <label class="feedback-form__label" for="modal-feedback-message">Your feedback</label>
                                         <textarea class="feedback-form__input" id="modal-feedback-message" name="feedback-message" rows="10" placeholder="write something..." required></textarea>
                                     </div>
                                     <button class="feedback-form__button" type="submit">Submit</button>
@@ -232,11 +233,11 @@
                         </div>
 
                         <div class="modal-content" id="modal-image-view">
-                            <img class="modal-content__image" alt="singular image full screen modal view" />
+                            <img class="modal-content__image" src="img/image_placeholder.png" alt="singular image full screen modal view" />
                         </div>
 
                         <div class="modal-content" id="gallery-modal">
-                            <img class="modal-content__image" alt="displayed modal gallery image" name="0" />
+                            <img class="modal-content__image" src="img/image_placeholder.png" alt="displayed modal gallery image" data-slide-number="0" />
                             <div class="floating-button-wrapper left">
                                 <button class="click-button
                                                click-button_no-background" onclick="modalGalleryPreviousImage()" id="previous-modal-button">
@@ -285,6 +286,9 @@
                             </li>
                             <li class="contacts-menu__item">
                                 <a class="contacts-menu__link" href="https://www.youtube.com/@antleeon" target="_blank">YouTube</a>
+                            </li>
+                            <li class="contacts-menu__item">
+                                <a class="contacts-menu__link" href="https://x.com/Antlee0n" target="_blank">Twitter</a>
                             </li>
                             <li class="contacts-menu__item">
                                 antipenkoanton21@gmail.com
