@@ -356,10 +356,23 @@ body.non-scrollable {
     line-height: 30px;
     text-align: center;
     font-family: inherit;
+    transition: all 0.3s ease-in-out;
 }
 
 .feedback-form__button:hover {
     cursor: pointer;
+}
+
+.feedback-form__button.awaiting {
+    background-color: rgb(80,80,80);
+}
+
+.feedback-form__button.error {
+    background-color: rgb(200,20,20);
+}
+
+.feedback-form__button.success {
+    background-color: rgb(0,180,0);
 }
 
 /* floating */
