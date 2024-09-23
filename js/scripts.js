@@ -11,17 +11,15 @@ function hideAllModalContent() {
 function setModalSectionVisibility(visible) {
     let modal_section = document.querySelector('#modals');
     let modal_wrapper = modal_section.querySelector('.modal-wrapper');
+    let body_tag = document.querySelector('body');
+
     if (visible) {
         modal_wrapper.classList.add('open');
+        body_tag.classList.add('non-scrollable');
     } else {
         modal_wrapper.classList.remove('open');
+        body_tag.classList.remove('non-scrollable');
     }
-
-    let body_tag = document.querySelector('body');
-    body_tag.style.overflow = visible ? 'hidden' : 'auto';
-    modal_section.style.overflow = visible ? 'auto' : 'hidden'; // setting scroll behavior
-    body_tag.style['padding-right'] = visible ? '15px' : '0'; // setting the padding accordingly
-    // great code, i regret nothing
 }
 
 function closeModal() {
@@ -111,24 +109,21 @@ function openFeedbackForm() {
 }
 
 function floatingMenuBarSwitch() {
-    const MENU_CLOSED_WIDTH = '80px';
-    const MENU_OPENED_WIDTH = '600px';
-
-    const LIST_CLOSED_WIDTH = '0';
-    const LIST_OPENED_WIDTH = '540px';
-
     let floating_section = document.querySelector('#floating');
     let opening_menu = floating_section.querySelector('.opening-menu'); // finding the menu element
 
     let menu_list = opening_menu.querySelector('.navigation-menu_hidden'); // finding the menu list
     let open_menu_button = opening_menu.querySelector('#open-menu-button'); // finding the menu button
 
-    let switch_to_opened = opening_menu.style.width != MENU_OPENED_WIDTH; // determining the state we're switching to
+    let switch_to_opened = !(opening_menu.classList.contains('open')); // determining the state we're switching to
 
-    opening_menu.style.width = switch_to_opened ? MENU_OPENED_WIDTH : MENU_CLOSED_WIDTH;
-    opening_menu.style['box-shadow'] = switch_to_opened ? '0 0 7px rgba(0,0,0,.5)' : '3px 4px 4px rgba(0,0,0,.15)';
-    
-    menu_list.style.width = switch_to_opened ? LIST_OPENED_WIDTH : LIST_CLOSED_WIDTH;
+    if (switch_to_opened) {
+        opening_menu.classList.add('open');
+        menu_list.classList.add('open');
+    } else {
+        opening_menu.classList.remove('open');
+        menu_list.classList.remove('open');
+    }
 
     let button_animations = open_menu_button.querySelectorAll('animate');
     let active_animation = switch_to_opened ?

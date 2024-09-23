@@ -14,6 +14,12 @@ body {
     margin: 0;
     font-weight: 300;
     overflow: auto;
+    padding: 0;
+}
+
+body.non-scrollable {
+    overflow: hidden;
+    padding-right: 15px;
 }
 
 .wrapper {
@@ -380,11 +386,20 @@ body {
     -webkit-transition: all 1.5s ease-in-out;
 }
 
+.opening-menu.open {
+    width: 600px;
+    box-shadow: 0 0 7px rgba(0,0,0,.5);
+}
+
 .navigation-menu_hidden {
     width: 0;
     overflow: hidden;
     transition: all 1.5s ease-in-out;
     -webkit-transition: all 1.5s ease-in-out;
+}
+
+.navigation-menu_hidden.open {
+    width: 540px;
 }
 
 .button-wrapper {
