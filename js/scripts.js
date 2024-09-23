@@ -210,3 +210,37 @@ modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInp
         timer_element.innerHTML = (time_distance > 0) ? current_timer_value : '... seems like it already happened!';
     }, countdown_interval);
 }()); // timer countdown script
+
+function setCookie(name, value, max_age = false) {
+    let new_cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    if (max_age) {
+       new_cookie += '; max-age=' + String(max_age);
+    }
+
+    document.cookie = new_cookie;
+} // sets new cookie value with an optional maximum age (in seconds)
+
+function deleteCookie(name) {
+    setCookie(name, '', -1);
+} // deleting cookie by setting it a negative age
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+} // returns current value of the cookie with the provided name
+
+(function() {
+    const countdown_time = 30_000;
+    const already_shown = getCookie('timerMessage');
+
+    if (!(already_shown)) {
+        setTimeout(() => {
+            alert('You can fill out a feedback form!');
+            setCookie('timerMessage', 'shown', 60*60*24*30);
+        }, countdown_time);
+    }
+
+    console.log(document.cookie);
+}()); // timer message script
