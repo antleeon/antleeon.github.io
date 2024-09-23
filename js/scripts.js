@@ -1,5 +1,7 @@
 "use strict";
 
+// modal hide/show & slide functions
+
 function hideAllModalContent() {
     let modal_section = document.querySelector('#modals');
     let modal_contents = modal_section.querySelectorAll('.modal-content');
@@ -185,6 +187,8 @@ main_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInpu
 modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInputs(false); });
 }()); // transfering the input text from one form to another automaticaly script
 
+// timer counting down script
+
 (function() {
     const countdown_date_time = new Date("Jun 1, 2027 00:00:00").getTime();
     const countdown_interval = 1000;
@@ -209,7 +213,9 @@ modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInp
 
         timer_element.innerHTML = (time_distance > 0) ? current_timer_value : '... seems like it already happened!';
     }, countdown_interval);
-}()); // timer countdown script
+}()); // timer countdown function
+
+// basic cookies managing functions
 
 function setCookie(name, value, max_age = false) {
     let new_cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
@@ -231,6 +237,8 @@ function getCookie(name) {
     return matches ? decodeURIComponent(matches[1]) : undefined;
 } // returns current value of the cookie with the provided name
 
+// alert box message script
+
 (function() {
     const countdown_time = 30_000;
     const already_shown = getCookie('timerMessage');
@@ -243,4 +251,97 @@ function getCookie(name) {
     }
 
     console.log(document.cookie);
-}()); // timer message script
+}()); // timer message function
+
+// feedback form input validation & submit functions
+
+let validateMainFeedbackForm = function() {
+    const cards_section = document.querySelector('#cards');
+    const feedback_card = cards_section.querySelector('#feedback');
+    const main_feedback_form = feedback_card.querySelector('#feedback-form');
+    
+    let validateNameInput = function() {
+        const name_input = main_feedback_form.querySelector('#feedback-user-name');
+        const input_value = name_input.value;
+        let re = /^[a-z ]{3,30}$/igm;
+        return (re.test(input_value));
+    };
+    let validateEmailInput = function() {
+        const email_input = main_feedback_form.querySelector('#feedback-user-email');
+        const input_value = email_input.value;
+        let re = /^[a-z0-9_.]{5,25}@[a-z0-9]{2,10}.[a-z]{2,3}$/igm;
+        return (re.test(input_value));
+    };
+    let validateMessageInput = function() {
+        const message_input = main_feedback_form.querySelector('#feedback-message');
+        const input_value = message_input.value;
+        let re = /^[a-z ]{20,200}$/igm;
+        return (re.test(input_value));
+    };
+    
+    return (validateNameInput() && validateEmailInput() && validateMessageInput());
+}
+
+let validateModalFeedbackForm = function() {
+    transferFeedbackFormInputs(false);
+    return validateMainFeedbackForm();
+}
+
+function postFeedbackForm() {
+    return true;
+}
+
+function submitFeedbackForm (submit_button, validator) {
+    const await_interval = 3000;
+
+    if (validator()) {
+        submit_button.classList.add('awaiting');
+        submit_button.innerHTML = 'Sending';
+        setTimeout(() => {
+            if (postFeedbackForm()) {
+                submit_button.classList.remove('awaiting');
+                submit_button.classList.add('success');
+                submit_button.innerHTML = 'Sent!';
+                setTimeout(() => {
+                    submit_button.classList.remove('success');
+                    submit_button.innerHTML = 'Submit';
+                }, await_interval);
+            } else {
+                submit_button.classList.remove('awaiting');
+                submit_button.classList.add('error');
+                submit_button.innerHTML = 'Error';
+                setTimeout(() => {
+                    submit_button.classList.remove('error');
+                    submit_button.innerHTML = 'Submit';
+                }, await_interval);
+            }
+        }, await_interval);
+    } else {
+        submit_button.classList.add('error');
+        submit_button.innerHTML = 'Invalid';
+        setTimeout(() => {
+            submit_button.classList.remove('error');
+            submit_button.innerHTML = 'Submit';
+        }, await_interval);
+    }
+}
+
+function submitMainFeedbackForm() {
+    const cards_section = document.querySelector('#cards');
+    const feedback_card = cards_section.querySelector('#feedback');
+    const main_feedback_form = feedback_card.querySelector('#feedback-form');
+    const submit_button = main_feedback_form.querySelector('.feedback-form__button');
+
+    submitFeedbackForm(submit_button, validateMainFeedbackForm);
+    event.preventDefault();
+}
+
+function submitModalFeedbackForm() {
+    const cards_section = document.querySelector('#modals');
+    const feedback_card = cards_section.querySelector('#feedback-modal');
+    const main_feedback_form = feedback_card.querySelector('#modal-feedback-form');
+    const submit_button = main_feedback_form.querySelector('.feedback-form__button');
+
+    submitFeedbackForm(submit_button, validateModalFeedbackForm);
+    event.preventDefault();
+}
