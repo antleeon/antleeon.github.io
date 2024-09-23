@@ -11,18 +11,20 @@ function hideAllModalContent() {
 function setModalSectionVisibility(visible) {
     let modal_section = document.querySelector('#modals');
     let modal_wrapper = modal_section.querySelector('.modal-wrapper');
-    modal_wrapper.style.display = visible ? 'flex' : 'none'; // setting display visibility
-
     let body_tag = document.querySelector('body');
-    body_tag.style.overflow = visible ? 'hidden' : 'auto';
-    modal_section.style.overflow = visible ? 'auto' : 'hidden'; // setting scroll behavior
-    body_tag.style['padding-right'] = visible ? '15px' : '0'; // setting the padding accordingly
-    // great code, i regret nothing
+
+    if (visible) {
+        modal_wrapper.classList.add('open');
+        body_tag.classList.add('non-scrollable');
+    } else {
+        modal_wrapper.classList.remove('open');
+        body_tag.classList.remove('non-scrollable');
+    }
 }
 
 function closeModal() {
-    hideAllModalContent(); // hiding all contents of modal section
     setModalSectionVisibility(false); // hiding the modal section
+    hideAllModalContent(); // hiding all contents of modal section
 }
 
 function displayModalContent(content_id) {
@@ -107,24 +109,21 @@ function openFeedbackForm() {
 }
 
 function floatingMenuBarSwitch() {
-    const MENU_CLOSED_WIDTH = '80px';
-    const MENU_OPENED_WIDTH = '600px';
-
-    const LIST_CLOSED_WIDTH = '0';
-    const LIST_OPENED_WIDTH = '540px';
-
     let floating_section = document.querySelector('#floating');
     let opening_menu = floating_section.querySelector('.opening-menu'); // finding the menu element
 
     let menu_list = opening_menu.querySelector('.navigation-menu_hidden'); // finding the menu list
     let open_menu_button = opening_menu.querySelector('#open-menu-button'); // finding the menu button
 
-    let switch_to_opened = opening_menu.style.width != MENU_OPENED_WIDTH; // determining the state we're switching to
+    let switch_to_opened = !(opening_menu.classList.contains('open')); // determining the state we're switching to
 
-    opening_menu.style.width = switch_to_opened ? MENU_OPENED_WIDTH : MENU_CLOSED_WIDTH;
-    opening_menu.style['box-shadow'] = switch_to_opened ? '0 0 7px rgba(0,0,0,.5)' : '3px 4px 4px rgba(0,0,0,.15)';
-    
-    menu_list.style.width = switch_to_opened ? LIST_OPENED_WIDTH : LIST_CLOSED_WIDTH;
+    if (switch_to_opened) {
+        opening_menu.classList.add('open');
+        menu_list.classList.add('open');
+    } else {
+        opening_menu.classList.remove('open');
+        menu_list.classList.remove('open');
+    }
 
     let button_animations = open_menu_button.querySelectorAll('animate');
     let active_animation = switch_to_opened ?
@@ -211,3 +210,37 @@ modal_feedback_form.addEventListener('focusout', () => { transferFeedbackFormInp
         timer_element.innerHTML = (time_distance > 0) ? current_timer_value : '... seems like it already happened!';
     }, countdown_interval);
 }()); // timer countdown script
+
+function setCookie(name, value, max_age = false) {
+    let new_cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    if (max_age) {
+       new_cookie += '; max-age=' + String(max_age);
+    }
+
+    document.cookie = new_cookie;
+} // sets new cookie value with an optional maximum age (in seconds)
+
+function deleteCookie(name) {
+    setCookie(name, '', -1);
+} // deleting cookie by setting it a negative age
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+} // returns current value of the cookie with the provided name
+
+(function() {
+    const countdown_time = 30_000;
+    const already_shown = getCookie('timerMessage');
+
+    if (!(already_shown)) {
+        setTimeout(() => {
+            alert('You can fill out a feedback form!');
+            setCookie('timerMessage', 'shown', 60*60*24*30);
+        }, countdown_time);
+    }
+
+    console.log(document.cookie);
+}()); // timer message script
