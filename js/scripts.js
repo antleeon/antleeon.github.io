@@ -298,23 +298,34 @@ function submitFeedbackForm (submit_button, validator) {
         submit_button.classList.add('awaiting');
         submit_button.innerHTML = 'Sending';
         setTimeout(() => {
-            if (postFeedbackForm()) {
-                submit_button.classList.remove('awaiting');
-                submit_button.classList.add('success');
-                submit_button.innerHTML = 'Sent!';
-                setTimeout(() => {
-                    submit_button.classList.remove('success');
-                    submit_button.innerHTML = 'Submit';
-                }, await_interval);
-            } else {
-                submit_button.classList.remove('awaiting');
-                submit_button.classList.add('error');
-                submit_button.innerHTML = 'Error';
-                setTimeout(() => {
-                    submit_button.classList.remove('error');
-                    submit_button.innerHTML = 'Submit';
-                }, await_interval);
-            }
+            fetch('https://jsonplaceholder.typicode.com/todos', {
+                method: 'POST',
+                body: JSON.stringify({
+                    user_name: document.querySelector('#feedback-user-name').value,
+                    user_email: document.querySelector('#feedback-user-email').value,
+                    message: document.querySelector('#feedback-message').value
+                }),
+                headers: { 'Content-type': 'application/json; charset=UTF-8'}
+            }).then(
+                function(result) {
+                    submit_button.classList.remove('awaiting');
+                    submit_button.classList.add('success');
+                    submit_button.innerHTML = 'Sent!';
+                    setTimeout(() => {
+                        submit_button.classList.remove('success');
+                        submit_button.innerHTML = 'Submit';
+                    }, await_interval);
+                },
+                function(error) {
+                    submit_button.classList.remove('awaiting');
+                    submit_button.classList.add('error');
+                    submit_button.innerHTML = 'Error';
+                    setTimeout(() => {
+                        submit_button.classList.remove('error');
+                        submit_button.innerHTML = 'Submit';
+                    }, await_interval);
+                }
+            )
         }, await_interval);
     } else {
         submit_button.classList.add('error');
