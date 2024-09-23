@@ -11,7 +11,11 @@ function hideAllModalContent() {
 function setModalSectionVisibility(visible) {
     let modal_section = document.querySelector('#modals');
     let modal_wrapper = modal_section.querySelector('.modal-wrapper');
-    modal_wrapper.style.display = visible ? 'flex' : 'none'; // setting display visibility
+    if (visible) {
+        modal_wrapper.classList.add('open');
+    } else {
+        modal_wrapper.classList.remove('open');
+    }
 
     let body_tag = document.querySelector('body');
     body_tag.style.overflow = visible ? 'hidden' : 'auto';
@@ -21,8 +25,8 @@ function setModalSectionVisibility(visible) {
 }
 
 function closeModal() {
-    hideAllModalContent(); // hiding all contents of modal section
     setModalSectionVisibility(false); // hiding the modal section
+    hideAllModalContent(); // hiding all contents of modal section
 }
 
 function displayModalContent(content_id) {
