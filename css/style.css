@@ -598,11 +598,14 @@ body.non-scrollable {
 
     .navigation-menu {
         padding: 5px;
-        gap: 0;
     }
     
     .navigation-menu__list{
         padding: 0 2px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-evenly;
     }
     
     .navigation-menu__item {
@@ -680,6 +683,9 @@ body.non-scrollable {
     
     .content-card__image {
         margin: 10px 0;
+        max-height: none;
+        max-width: 80vw;
+        height: fit-content;
     }
     
     .content-card__image_gallery {
