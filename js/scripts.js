@@ -255,28 +255,37 @@ function getCookie(name) {
 
 // feedback form input validation & submit functions
 
-let validateMainFeedbackForm = function() {
+function getMainFeedbackFormInputs() {
     const cards_section = document.querySelector('#cards');
     const feedback_card = cards_section.querySelector('#feedback');
     const main_feedback_form = feedback_card.querySelector('#feedback-form');
+
+    const inputs = {
+        user_name: main_feedback_form.querySelector('#feedback-user-name').value,
+        user_email: main_feedback_form.querySelector('#feedback-user-email').value,
+        message: main_feedback_form.querySelector('#feedback-message').value
+    }
+
+    return inputs;
+}
+
+let validateMainFeedbackForm = function() {
+    const form_inputs = getMainFeedbackFormInputs();
     
     let validateNameInput = function() {
-        const name_input = main_feedback_form.querySelector('#feedback-user-name');
-        const input_value = name_input.value;
+        const name_input = form_inputs.user_name;
         let re = /^[a-z ]{3,30}$/igm;
-        return (re.test(input_value));
+        return (re.test(name_input));
     };
     let validateEmailInput = function() {
-        const email_input = main_feedback_form.querySelector('#feedback-user-email');
-        const input_value = email_input.value;
+        const email_input = form_inputs.user_email;
         let re = /^[a-z0-9_.]{5,25}@[a-z0-9]{2,10}.[a-z]{2,3}$/igm;
-        return (re.test(input_value));
+        return (re.test(email_input));
     };
     let validateMessageInput = function() {
-        const message_input = main_feedback_form.querySelector('#feedback-message');
-        const input_value = message_input.value;
+        const message_input = form_inputs.message;
         let re = /^[a-z ]{20,200}$/igm;
-        return (re.test(input_value));
+        return (re.test(message_input));
     };
     
     return (validateNameInput() && validateEmailInput() && validateMessageInput());
@@ -287,49 +296,118 @@ let validateModalFeedbackForm = function() {
     return validateMainFeedbackForm();
 }
 
-function postFeedbackForm() {
-    return true;
+function setFormStatus(form, if_disabled) {
+    const input_elements = form.querySelectorAll('input');
+    const textarea_elements = form.querySelectorAll('textarea');
+    const button_elements = form.querySelectorAll('button');
+
+    let switcher = (elements) => {
+        for (const element of elements) {
+            element.disabled = if_disabled;
+        }
+    };
+
+    switcher(input_elements);
+    switcher(button_elements);
+    switcher(textarea_elements);
+}
+
+function disableFeedbackForms() {
+    const cards_section = document.querySelector('#cards');
+    const feedback_card = cards_section.querySelector('#feedback');
+    const main_feedback_form = feedback_card.querySelector('#feedback-form');
+
+    const modal_section = document.querySelector('#modals');
+    const modal_feedback = modal_section.querySelector('#feedback-modal');
+    const modal_feedback_form = modal_feedback.querySelector('#modal-feedback-form');
+
+    setFormStatus(main_feedback_form, true);
+    setFormStatus(modal_feedback_form, true);
+}
+
+function enableFeedbackForms() {
+    const cards_section = document.querySelector('#cards');
+    const feedback_card = cards_section.querySelector('#feedback');
+    const main_feedback_form = feedback_card.querySelector('#feedback-form');
+
+    const modal_section = document.querySelector('#modals');
+    const modal_feedback = modal_section.querySelector('#feedback-modal');
+    const modal_feedback_form = modal_feedback.querySelector('#modal-feedback-form');
+
+    setFormStatus(main_feedback_form, false);
+    setFormStatus(modal_feedback_form, false);
+}
+
+function clearForm(form) {
+    const input_elements = form.querySelectorAll('input');
+    const textarea_elements = form.querySelectorAll('textarea');
+
+    let cleaner = (elements) => {
+        for (const element of elements) {
+            element.value = '';
+        }
+    };
+
+    cleaner(input_elements);
+    cleaner(textarea_elements);
+}
+
+function clearFeedbackForms() {
+    const cards_section = document.querySelector('#cards');
+    const feedback_card = cards_section.querySelector('#feedback');
+    const main_feedback_form = feedback_card.querySelector('#feedback-form');
+
+    const modal_section = document.querySelector('#modals');
+    const modal_feedback = modal_section.querySelector('#feedback-modal');
+    const modal_feedback_form = modal_feedback.querySelector('#modal-feedback-form');
+
+    clearForm(main_feedback_form);
+    clearForm(modal_feedback_form);
 }
 
 function submitFeedbackForm (submit_button, validator) {
     const await_interval = 3000;
 
+    disableFeedbackForms();
     if (validator()) {
         submit_button.classList.add('awaiting');
         submit_button.innerHTML = 'Sending';
-        setTimeout(() => {
-            fetch('https://jsonplaceholder.typicode.com/todos', {
-                method: 'POST',
-                body: JSON.stringify({
-                    user_name: document.querySelector('#feedback-user-name').value,
-                    user_email: document.querySelector('#feedback-user-email').value,
-                    message: document.querySelector('#feedback-message').value
-                }),
-                headers: { 'Content-type': 'application/json; charset=UTF-8'}
-            }).then(
-                function(result) {
-                    submit_button.classList.remove('awaiting');
-                    submit_button.classList.add('success');
-                    submit_button.innerHTML = 'Sent!';
-                    setTimeout(() => {
-                        submit_button.classList.remove('success');
-                        submit_button.innerHTML = 'Submit';
-                    }, await_interval);
-                },
-                function(error) {
-                    submit_button.classList.remove('awaiting');
-                    submit_button.classList.add('error');
-                    submit_button.innerHTML = 'Error';
-                    setTimeout(() => {
-                        submit_button.classList.remove('error');
-                        submit_button.innerHTML = 'Submit';
-                    }, await_interval);
-                }
-            )
-        }, await_interval);
+        const form_inputs = getMainFeedbackFormInputs();
+        fetch('https://jsonplaceholder.typicode.com/todos', {
+            method: 'POST',
+            body: JSON.stringify({
+                user_name: form_inputs.user_name,
+                user_email: form_inputs.user_email,
+                message: form_inputs.message
+            }),
+            headers: { 'Content-type': 'application/json; charset=UTF-8'}
+        }).then(
+            function(result) {
+                submit_button.classList.remove('awaiting');
+                submit_button.classList.add('success');
+                submit_button.innerHTML = 'Sent!';
+                setTimeout(() => {
+                    submit_button.classList.remove('success');
+                    submit_button.innerHTML = 'Submit';
+                    clearFeedbackForms();
+                    enableFeedbackForms();
+                }, await_interval);
+            },
+            function(error) {
+                submit_button.classList.remove('awaiting');
+                submit_button.classList.add('error');
+                submit_button.innerHTML = 'Error';
+                setTimeout(() => {
+                    submit_button.classList.remove('error');
+                    submit_button.innerHTML = 'Submit';
+                    enableFeedbackForms();
+                }, await_interval);
+            }
+        );
     } else {
         submit_button.classList.add('error');
         submit_button.innerHTML = 'Invalid';
+        enableFeedbackForms();
         setTimeout(() => {
             submit_button.classList.remove('error');
             submit_button.innerHTML = 'Submit';
