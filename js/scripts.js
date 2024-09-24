@@ -279,7 +279,7 @@ let validateMainFeedbackForm = function() {
     };
     let validateEmailInput = function() {
         const email_input = form_inputs.user_email;
-        let re = /^[a-z0-9_.]{5,25}@([a-z0-9]{2,10}.)+[a-z]{2,3}$/igm;
+        let re = /^[a-z0-9_.]{5,25}@[a-z0-9]{2,10}(.[a-z]{2,3})+$/igm;
         return (re.test(email_input));
     };
     let validateMessageInput = function() {
